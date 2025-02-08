@@ -55,23 +55,9 @@
               "icon": "lucide-trello",
               "title": "go planning"
             }
-          },
-          {
-            "id": "d26a4e0b4c9b338c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "entrypoint.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "entrypoint"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "4b05e055e19afe18",
@@ -241,10 +227,11 @@
       "obsidian-kanban:Create new board": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "templater-obsidian:Templater": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d26a4e0b4c9b338c",
+  "active": "f2a2543c9d4a016d",
   "lastOpenFiles": [
     "Coding brainage/go/go planning.md",
     "entrypoint.md",
