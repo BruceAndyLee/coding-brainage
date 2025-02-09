@@ -4,55 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "35d8d9ea362e3866",
+        "id": "d4094e394a65fe50",
         "type": "tabs",
-        "dimension": 51.16136919315404,
         "children": [
           {
-            "id": "f2a2543c9d4a016d",
+            "id": "694d5e95c7d72bfd",
             "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Coding brainage/orbiter/orbiter planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "icon": "lucide-trello",
-              "title": "orbiter planner"
-            }
-          },
-          {
-            "id": "7eff9016a076afe3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "entrypoint.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "entrypoint"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "4b05e055e19afe18",
-        "type": "tabs",
-        "dimension": 48.83863080684596,
-        "children": [
-          {
-            "id": "7388a28ddbda325a",
-            "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
@@ -60,11 +18,27 @@
                 "mode": "source",
                 "source": false
               },
+              "pinned": true,
               "icon": "lucide-file",
               "title": "entrypoint"
             }
+          },
+          {
+            "id": "b257921fe6c4cbe0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Templates/create-project.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "create-project"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -137,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Coding brainage/QUIRKY.md",
+                "file": "Templates/create-project.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for QUIRKY"
+              "title": "Backlinks for create-project"
             }
           },
           {
@@ -216,43 +190,40 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7eff9016a076afe3",
+  "active": "b257921fe6c4cbe0",
   "lastOpenFiles": [
+    "Coding brainage/LOL_NEW_PROJECT/README.md",
+    "Coding brainage/LOL_NEW_PROJECT/planner.md",
+    "Coding brainage/LOL_NEW_PROJECT",
+    "Templates/create-project.md",
+    "README.md",
+    "vault/vault planner.md",
+    "Coding brainage/README.md",
+    "entrypoint.md",
+    "Coding brainage/LOL_NEW_PROJECT.md",
+    "Untitled 1.md",
+    "Coding brainage/UNTITLED_PROJECT",
+    "Templates/project-planner-template.md",
+    "Coding brainage/UNTITLED_PROJECT/planner 1.md",
+    "Templates/project-readme-template.md",
+    "LOL",
     "Coding brainage/orbiter/orbiter planner.md",
+    "vault",
+    "Templates/Study.md",
     "Coding brainage/orbiter/orbiter.md",
     "Coding brainage/orbiter/readme.md",
     "Coding brainage/go/go planning.md",
     "Coding brainage/nuxt.js/nuxt.js.md",
-    "README.md",
     "Coding brainage/orbiter",
-    "entrypoint.md",
     "Coding brainage/go/go.md",
     "Coding brainage/JS backend.md",
     "Coding brainage/git.md",
     "Coding brainage/SEO.md",
-    "Templates/Study.md",
     "Welcome.md",
-    "Coding brainage/ECMA Script/ES JS ECMAScript/strict mode.md",
-    "Coding brainage/ECMA Script/ES JS ECMAScript/Untitled 2.md",
-    "Coding brainage/ECMA Script/html + html5/Untitled.md",
-    "Coding brainage/ECMA Script/html + html5/semantics.md",
-    "Coding brainage/QUIRKY.md",
-    "Coding brainage/ECMA Script/html + html5/meta.md",
-    "Coding brainage/Information.md",
-    "Coding brainage/Docker (w- node.js)/Docker (w- node.js).md",
-    "Coding brainage/ECMA Script/html + html5/aria.md",
-    "Coding brainage/licensing.md",
-    "Coding brainage/Dart & Flutter.md",
-    "Coding brainage/flutter.md",
-    "Coding brainage/go/Theory.md",
     "Templates",
     "Coding brainage/go/Go theory/преобразования типов",
     "Coding brainage/go/Go theory/анонимные функции",
     "Coding brainage/go/Go theory/Map",
-    "Coding brainage/go/Go theory",
-    "Coding brainage/ECMA Script/html + html5",
-    "Coding brainage/ECMA Script/ES JS ECMAScript",
-    "Coding brainage/package management & yarn",
-    "Coding brainage/nuxt.js"
+    "Coding brainage/go/Go theory"
   ]
 }

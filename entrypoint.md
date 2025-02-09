@@ -11,6 +11,17 @@ limit 10
 // filter(file.tasks, (t) => t.completed)
 ```
 
+## [[vault planner]]
+```dataview
+TABLE WITHOUT ID
+	task.text as Задачи,
+	choice(meta(task.section).subpath = "new", "○", "◒") AS Статус
+where contains(file.path, "vault") and contains(file.path, "planner") 
+flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as task
+sort file.mtime desc
+limit 10
+```
+
 ## Orbiter
 ```dataview
 TABLE WITHOUT ID
@@ -20,11 +31,9 @@ where contains(file.path, "orbiter") and contains(file.path, "planner")
 flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as task
 sort file.mtime desc
 limit 10
-
-// filter(file.tasks, (t) => t.completed)
 ```
 
-## Backend
+## Backend entrypoints
 ```dataview
 TABLE WITHOUT ID
 	file.link as Страница
@@ -32,7 +41,7 @@ where contains(tags, "backend")
 ```
 
 
-## Frontend
+## Frontend entrypoints
 ```dataview
 TABLE WITHOUT ID
 	file.link as Страница
