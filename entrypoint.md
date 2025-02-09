@@ -1,4 +1,4 @@
-## TODO go
+## go
 ```dataview
 TABLE WITHOUT ID
 	task.text as Задачи,
@@ -6,6 +6,20 @@ TABLE WITHOUT ID
 where contains(file.path, "go") and contains(file.path, "planning") 
 flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as task
 sort file.mtime desc
+limit 10
+
+// filter(file.tasks, (t) => t.completed)
+```
+
+## Orbiter
+```dataview
+TABLE WITHOUT ID
+	task.text as Задачи,
+	choice(meta(task.section).subpath = "new", "○", "◒") AS Статус
+where contains(file.path, "orbiter") and contains(file.path, "planner") 
+flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as task
+sort file.mtime desc
+limit 10
 
 // filter(file.tasks, (t) => t.completed)
 ```
