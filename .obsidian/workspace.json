@@ -64,7 +64,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Templates/project-planner-template.md",
+                "file": "vault/vault planner.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for project-planner-template"
+              "title": "Backlinks for vault planner"
             }
           },
           {
@@ -216,8 +216,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d1c4b853dfaa66c3",
+  "active": "2c1f7c4f3f7fefd2",
   "lastOpenFiles": [
+    "Templates/project-planner-template.md",
     "Templates/project-readme-template.md",
     "Templates/create-project.md",
     "Coding brainage/tg-scraper bot/planner.md",
@@ -236,7 +237,6 @@
     "Coding brainage/LOL_NEW_PROJECT.md",
     "Untitled 1.md",
     "Coding brainage/UNTITLED_PROJECT",
-    "Templates/project-planner-template.md",
     "Coding brainage/UNTITLED_PROJECT/planner 1.md",
     "LOL",
     "Coding brainage/orbiter/orbiter planner.md",
