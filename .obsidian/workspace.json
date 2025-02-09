@@ -44,12 +44,12 @@
             }
           },
           {
-            "id": "b257921fe6c4cbe0",
+            "id": "d1c4b853dfaa66c3",
             "type": "leaf",
             "state": {
               "type": "kanban",
               "state": {
-                "file": "Coding brainage/linuxing/planner.md",
+                "file": "Templates/project-planner-template.md",
                 "kanbanViewState": {
                   "kanban-plugin": "board",
                   "list-collapse": [
@@ -60,11 +60,11 @@
                 }
               },
               "icon": "lucide-trello",
-              "title": "planner"
+              "title": "project-planner-template"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -137,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vault/vault planner.md",
+                "file": "Templates/project-planner-template.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for vault planner"
+              "title": "Backlinks for project-planner-template"
             }
           },
           {
@@ -216,22 +216,28 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2c1f7c4f3f7fefd2",
+  "active": "d1c4b853dfaa66c3",
   "lastOpenFiles": [
-    "entrypoint.md",
-    "Coding brainage/linuxing/planner.md",
-    "Coding brainage/linuxing/README.md",
+    "Templates/project-readme-template.md",
     "Templates/create-project.md",
+    "Coding brainage/tg-scraper bot/planner.md",
+    "vault/vault planner.md",
+    "Coding brainage/tg-scraper bot/README.md",
+    "Coding brainage/linuxing/planner.md",
+    "Coding brainage/brainfuck/planner.md",
+    "Coding brainage/tg-scraper bot",
+    "Coding brainage/brainfuck/README.md",
+    "Coding brainage/brainfuck",
+    "entrypoint.md",
+    "Coding brainage/linuxing/README.md",
     "Coding brainage/linuxing",
     "README.md",
-    "vault/vault planner.md",
     "Coding brainage/README.md",
     "Coding brainage/LOL_NEW_PROJECT.md",
     "Untitled 1.md",
     "Coding brainage/UNTITLED_PROJECT",
     "Templates/project-planner-template.md",
     "Coding brainage/UNTITLED_PROJECT/planner 1.md",
-    "Templates/project-readme-template.md",
     "LOL",
     "Coding brainage/orbiter/orbiter planner.md",
     "vault",
@@ -245,11 +251,8 @@
     "Coding brainage/JS backend.md",
     "Coding brainage/git.md",
     "Coding brainage/SEO.md",
-    "Welcome.md",
     "Templates",
     "Coding brainage/go/Go theory/преобразования типов",
-    "Coding brainage/go/Go theory/анонимные функции",
-    "Coding brainage/go/Go theory/Map",
-    "Coding brainage/go/Go theory"
+    "Coding brainage/go/Go theory/анонимные функции"
   ]
 }

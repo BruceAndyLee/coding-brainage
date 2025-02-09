@@ -1,47 +1,31 @@
 ---
 
-  
-
 kanban-plugin: board
-
-  
 
 ---
 
-  
-
 ## new
-
-  
 
 - [ ] первая задача
 
-  
 
 ## in-progress
 
-- [ ] 
-  
-  
+- [ ] завести файл README с основными идеями
+
 
 ## completed
 
-- [ ] завести файл README с основными идеями
+
 
 ## ideas/backlog
-- [ ]
 
-  
-  
-  
-  
+
+
+
 
 %% kanban:settings
-
 ```
-
 {"kanban-plugin":"board","list-collapse":[false,false,false]}
-
 ```
-
 %%
