@@ -27,20 +27,14 @@
             "id": "2c1f7c4f3f7fefd2",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "vault/vault planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "entrypoint.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "vault planner"
+              "icon": "lucide-file",
+              "title": "entrypoint"
             }
           },
           {
@@ -137,7 +131,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vault/vault planner.md",
+                "file": "entrypoint.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +141,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for vault planner"
+              "title": "Backlinks for entrypoint"
             }
           },
           {
@@ -193,13 +187,23 @@
               "icon": "lucide-list",
               "title": "Outline of QUIRKY"
             }
+          },
+          {
+            "id": "621e9fc3ace9dfd2",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 484.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -216,20 +220,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2c1f7c4f3f7fefd2",
+  "active": "621e9fc3ace9dfd2",
   "lastOpenFiles": [
     "Templates/project-planner-template.md",
+    "entrypoint.md",
+    "vault/vault planner.md",
     "Templates/project-readme-template.md",
     "Templates/create-project.md",
     "Coding brainage/tg-scraper bot/planner.md",
-    "vault/vault planner.md",
     "Coding brainage/tg-scraper bot/README.md",
     "Coding brainage/linuxing/planner.md",
     "Coding brainage/brainfuck/planner.md",
     "Coding brainage/tg-scraper bot",
     "Coding brainage/brainfuck/README.md",
     "Coding brainage/brainfuck",
-    "entrypoint.md",
     "Coding brainage/linuxing/README.md",
     "Coding brainage/linuxing",
     "README.md",
