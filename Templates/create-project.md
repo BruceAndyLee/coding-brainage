@@ -8,7 +8,7 @@
 	
 	await this.app.vault.createFolder(PROJECT_FOLDER);
 	await tp.file.move(PROJECT_FOLDER + "README");
-	await tp.file.include(readme_tfile);
+	tR += await tp.file.include(readme_tfile);
 	
 	await tp.file.create_new(planner_kanban_tfile, planner_kanban_note_name, false, PROJECT_FOLDER);
 %>

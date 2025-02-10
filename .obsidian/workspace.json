@@ -44,6 +44,21 @@
             }
           },
           {
+            "id": "9a4d9c66371d2b57",
+            "type": "leaf",
+            "state": {
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "Coding brainage/go/go planning.md",
+                "bFile": "Coding brainage/go/go planning.md",
+                "aRef": "HEAD",
+                "bRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: go planning"
+            }
+          },
+          {
             "id": "d1c4b853dfaa66c3",
             "type": "leaf",
             "state": {
@@ -64,7 +79,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -137,7 +152,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Coding brainage/tg-scraper bot/planner.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +161,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for planner"
+              "title": "Backlinks"
             }
           },
           {
@@ -226,14 +240,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2c1f7c4f3f7fefd2",
+  "active": "9a4d9c66371d2b57",
   "lastOpenFiles": [
+    "conflict-files-obsidian-git.md",
+    "Coding brainage/tg-scraper bot/planner.md",
     "entrypoint.md",
     "Templates/project-planner-template.md",
     "vault/vault planner.md",
     "Templates/project-readme-template.md",
     "Templates/create-project.md",
-    "Coding brainage/tg-scraper bot/planner.md",
     "Coding brainage/tg-scraper bot/README.md",
     "Coding brainage/linuxing/planner.md",
     "Coding brainage/brainfuck/planner.md",
@@ -260,7 +275,6 @@
     "Coding brainage/go/go.md",
     "Coding brainage/JS backend.md",
     "Coding brainage/git.md",
-    "Coding brainage/SEO.md",
     "Templates",
     "Coding brainage/go/Go theory/преобразования типов",
     "Coding brainage/go/Go theory/анонимные функции"
