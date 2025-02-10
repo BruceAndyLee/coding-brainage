@@ -24,26 +24,6 @@
             }
           },
           {
-            "id": "2c1f7c4f3f7fefd2",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Coding brainage/tg-scraper bot/planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "icon": "lucide-trello",
-              "title": "planner"
-            }
-          },
-          {
             "id": "d1c4b853dfaa66c3",
             "type": "leaf",
             "state": {
@@ -63,8 +43,7 @@
               "title": "project-planner-template"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -226,14 +205,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "2c1f7c4f3f7fefd2",
+  "active": "694d5e95c7d72bfd",
   "lastOpenFiles": [
+    "Templates/create-project.md",
     "entrypoint.md",
     "Templates/project-planner-template.md",
+    "Coding brainage/tg-scraper bot/planner.md",
     "vault/vault planner.md",
     "Templates/project-readme-template.md",
-    "Templates/create-project.md",
-    "Coding brainage/tg-scraper bot/planner.md",
     "Coding brainage/tg-scraper bot/README.md",
     "Coding brainage/linuxing/planner.md",
     "Coding brainage/brainfuck/planner.md",

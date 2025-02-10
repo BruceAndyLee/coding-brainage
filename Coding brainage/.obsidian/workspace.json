@@ -1,0 +1,183 @@
+{
+  "main": {
+    "id": "0c1a3ffadc79f6bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "7dd17e894f8eee03",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "da31c6640c99f2a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tailwind.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "tailwind"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1e8976c5be4c63d9",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4a22e15aec8f04b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7b1e905d08fb8ecd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b9791a178d4335bb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "80be885dcea1a4e0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f2566aaa39c0eb3c",
+    "type": "split",
+    "children": [
+      {
+        "id": "46ca08d6ba6065f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90326c05ceb90c96",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "tailwind.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for tailwind"
+            }
+          },
+          {
+            "id": "4afaeb974eb7fc86",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "tailwind.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from tailwind"
+            }
+          },
+          {
+            "id": "9550d5574762f12b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6a3df5948dbca596",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "tailwind.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of tailwind"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-kanban:Create new board": false
+    }
+  },
+  "active": "da31c6640c99f2a5",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "tailwind.md",
+    "Untitled.canvas",
+    "go/Go theory/packages (пакеты).md",
+    "go/go planning.md",
+    "go/go.md",
+    "go/Go theory/строки и байты.md",
+    "2025-02-10.md"
+  ]
+}
