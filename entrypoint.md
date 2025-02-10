@@ -1,3 +1,10 @@
+```dataview
+TABLE WITHOUT ID
+ file.link as Project
+where contains(file.path, "Coding brainage")
+limit 10
+```
+
 ## go
 ```dataview
 TABLE WITHOUT ID

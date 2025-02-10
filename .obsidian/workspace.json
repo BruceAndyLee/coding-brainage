@@ -16,7 +16,7 @@
               "state": {
                 "file": "entrypoint.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "pinned": true,
               "icon": "lucide-file",
@@ -43,8 +43,7 @@
               "title": "go planning"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -101,7 +100,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4e47f162fbabf3fa",
@@ -165,13 +165,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Coding brainage/QUIRKY.md",
+                "file": "entrypoint.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of QUIRKY"
+              "title": "Outline of entrypoint"
             }
           },
           {
@@ -185,11 +185,12 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 398.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -206,11 +207,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d1c4b853dfaa66c3",
+  "active": "694d5e95c7d72bfd",
   "lastOpenFiles": [
+    "Coding brainage/ECMA Script/html + html5/Untitled.md",
+    "entrypoint.md",
+    "Coding brainage/go/go planning.md",
     "Templates/project-readme-template.md",
     "Templates/project-planner-template.md",
-    "entrypoint.md",
     "Templates/create-project.md",
     "Coding brainage/tg-scraper bot/planner.md",
     "vault/vault planner.md",
@@ -234,13 +237,11 @@
     "Templates/Study.md",
     "Coding brainage/orbiter/orbiter.md",
     "Coding brainage/orbiter/readme.md",
-    "Coding brainage/go/go planning.md",
     "Coding brainage/nuxt.js/nuxt.js.md",
     "Coding brainage/orbiter",
     "Coding brainage/go/go.md",
     "Coding brainage/JS backend.md",
     "Coding brainage/git.md",
-    "Coding brainage/SEO.md",
     "Templates",
     "Coding brainage/go/Go theory/преобразования типов",
     "Coding brainage/go/Go theory/анонимные функции"
