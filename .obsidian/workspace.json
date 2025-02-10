@@ -24,62 +24,21 @@
             }
           },
           {
-            "id": "2c1f7c4f3f7fefd2",
+            "id": "56bb0fe2a33386b2",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Coding brainage/tg-scraper bot/planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "Coding brainage/gigatest/README.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "planner"
-            }
-          },
-          {
-            "id": "9a4d9c66371d2b57",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "Coding brainage/go/go planning.md",
-                "bFile": "Coding brainage/go/go planning.md",
-                "aRef": "HEAD",
-                "bRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: go planning"
-            }
-          },
-          {
-            "id": "d1c4b853dfaa66c3",
-            "type": "leaf",
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Templates/project-planner-template.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "icon": "lucide-trello",
-              "title": "project-planner-template"
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -152,6 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Coding brainage/gigatest/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -161,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -240,12 +200,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9a4d9c66371d2b57",
+  "active": "56bb0fe2a33386b2",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
-    "Coding brainage/tg-scraper bot/planner.md",
     "entrypoint.md",
+    "Coding brainage/gigatest/planner.md",
+    "Coding brainage/gigatest",
+    "Coding brainage/gigatest/README.md",
     "Templates/project-planner-template.md",
+    "Coding brainage/tg-scraper bot/planner.md",
+    "conflict-files-obsidian-git.md",
     "vault/vault planner.md",
     "Templates/project-readme-template.md",
     "Templates/create-project.md",
@@ -273,10 +236,7 @@
     "Coding brainage/nuxt.js/nuxt.js.md",
     "Coding brainage/orbiter",
     "Coding brainage/go/go.md",
-    "Coding brainage/JS backend.md",
-    "Coding brainage/git.md",
     "Templates",
-    "Coding brainage/go/Go theory/преобразования типов",
-    "Coding brainage/go/Go theory/анонимные функции"
+    "Coding brainage/go/Go theory/преобразования типов"
   ]
 }
