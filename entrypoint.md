@@ -1,7 +1,11 @@
+## tg-planner
 ```dataview
 TABLE WITHOUT ID
- file.link as Project
-where contains(file.path, "Coding brainage")
+	task.text as Задачи,
+	choice(meta(task.section).subpath = "new", "○", "◒") AS Статус
+where contains(file.path, "tg-scraper-bot") and contains(file.path, "planner") 
+flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as task
+sort file.mtime desc
 limit 10
 ```
 

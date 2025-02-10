@@ -24,17 +24,23 @@
             }
           },
           {
-            "id": "56bb0fe2a33386b2",
+            "id": "8ffbf49310fc1179",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Coding brainage/gigatest/README.md",
-                "mode": "source",
-                "source": false
+                "file": "Coding brainage/tg-scraper-bot/planner.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "README"
+              "icon": "lucide-trello",
+              "title": "planner"
             }
           }
         ],
@@ -111,7 +117,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Coding brainage/gigatest/README.md",
+                "file": "Coding brainage/tg-scraper-bot/planner.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +127,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for planner"
             }
           },
           {
@@ -200,22 +206,22 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "56bb0fe2a33386b2",
+  "active": "8ffbf49310fc1179",
   "lastOpenFiles": [
     "entrypoint.md",
+    "Coding brainage/tg-scraper-bot/planner.md",
+    "Coding brainage/gigatest/README.md",
     "Coding brainage/gigatest/planner.md",
     "Coding brainage/gigatest",
-    "Coding brainage/gigatest/README.md",
     "Templates/project-planner-template.md",
-    "Coding brainage/tg-scraper bot/planner.md",
     "conflict-files-obsidian-git.md",
     "vault/vault planner.md",
     "Templates/project-readme-template.md",
     "Templates/create-project.md",
-    "Coding brainage/tg-scraper bot/README.md",
+    "Coding brainage/tg-scraper-bot/README.md",
     "Coding brainage/linuxing/planner.md",
     "Coding brainage/brainfuck/planner.md",
-    "Coding brainage/tg-scraper bot",
+    "Coding brainage/tg-scraper-bot",
     "Coding brainage/brainfuck/README.md",
     "Coding brainage/brainfuck",
     "Coding brainage/linuxing/README.md",
