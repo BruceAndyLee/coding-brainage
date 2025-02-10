@@ -29,7 +29,7 @@
             "state": {
               "type": "kanban",
               "state": {
-                "file": "Templates/project-planner-template.md",
+                "file": "Coding brainage/go/go planning.md",
                 "kanbanViewState": {
                   "kanban-plugin": "board",
                   "list-collapse": [
@@ -40,10 +40,11 @@
                 }
               },
               "icon": "lucide-trello",
-              "title": "project-planner-template"
+              "title": "go planning"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -188,7 +189,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 484.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -205,14 +206,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "694d5e95c7d72bfd",
+  "active": "d1c4b853dfaa66c3",
   "lastOpenFiles": [
-    "Templates/create-project.md",
-    "entrypoint.md",
+    "Templates/project-readme-template.md",
     "Templates/project-planner-template.md",
+    "entrypoint.md",
+    "Templates/create-project.md",
     "Coding brainage/tg-scraper bot/planner.md",
     "vault/vault planner.md",
-    "Templates/project-readme-template.md",
     "Coding brainage/tg-scraper bot/README.md",
     "Coding brainage/linuxing/planner.md",
     "Coding brainage/brainfuck/planner.md",
