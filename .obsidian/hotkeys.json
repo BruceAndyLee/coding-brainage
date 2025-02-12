@@ -45,10 +45,11 @@
   "templater-obsidian:create-new-note-from-template": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
       "key": "N"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file-in-new-pane": []
 }
