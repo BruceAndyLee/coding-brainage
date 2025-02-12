@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "tailwind.md",
+                "file": "package management & yarn/package management & yarn.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "tailwind"
+              "title": "package management & yarn"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "версионирование",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -160,6 +161,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -171,8 +173,10 @@
   },
   "active": "da31c6640c99f2a5",
   "lastOpenFiles": [
-    "Untitled.md",
+    "html5.md",
+    "package management & yarn/package management & yarn.md",
     "tailwind.md",
+    "Untitled.md",
     "Untitled.canvas",
     "go/Go theory/packages (пакеты).md",
     "go/go planning.md",
