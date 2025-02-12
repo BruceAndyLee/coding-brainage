@@ -49,12 +49,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "идея для проекта с тестированием.md",
+                "file": "Coding brainage/butlerov/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "идея для проекта с тестированием"
+              "title": "README"
             }
           }
         ],
@@ -90,7 +90,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "цель",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -223,16 +223,19 @@
   },
   "active": "baad0c6a3157d3fe",
   "lastOpenFiles": [
-    "entrypoint.md",
+    "Coding brainage/butlerov/planner.md",
+    "Coding brainage/butlerov/README.md",
+    "Coding brainage/gigatest/README.md",
     "идея для проекта с тестированием.md",
+    "Coding brainage/butlerov",
+    "entrypoint.md",
+    "Coding brainage/go/go planning.md",
     "Coding brainage/tg-scraper-bot/planner.md",
     "Coding brainage/tg-scraper-bot/README.md",
     "Coding brainage/tg-scraper-bot",
     "Coding brainage/gigatest/planner.md",
-    "Coding brainage/gigatest/README.md",
     "Coding brainage/gigatest",
     "Coding brainage/ECMA Script/html + html5/Untitled.md",
-    "Coding brainage/go/go planning.md",
     "Templates/project-readme-template.md",
     "Templates/project-planner-template.md",
     "Templates/create-project.md",
@@ -255,9 +258,6 @@
     "LOL",
     "Coding brainage/orbiter/orbiter planner.md",
     "vault",
-    "Templates/Study.md",
-    "Coding brainage/orbiter/orbiter.md",
-    "Coding brainage/orbiter",
-    "Templates"
+    "Coding brainage/orbiter"
   ]
 }
