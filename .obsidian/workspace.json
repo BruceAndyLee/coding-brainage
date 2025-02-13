@@ -51,7 +51,7 @@
               "state": {
                 "file": "идея для проекта с тестированием.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "идея для проекта с тестированием"
