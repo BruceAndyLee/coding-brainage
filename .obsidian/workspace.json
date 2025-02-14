@@ -56,23 +56,9 @@
               "icon": "lucide-file",
               "title": "идея для проекта с тестированием"
             }
-          },
-          {
-            "id": "b02cf66b8ab4dec9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "conflict-files-obsidian-git.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "conflict-files-obsidian-git"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -235,10 +221,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b02cf66b8ab4dec9",
+  "active": "baad0c6a3157d3fe",
   "lastOpenFiles": [
-    "идея для проекта с тестированием.md",
     "conflict-files-obsidian-git.md",
+    "идея для проекта с тестированием.md",
     "Coding brainage/go/planner.md",
     "butlerov.md",
     "Coding brainage/butlerov/planner.md",
