@@ -49,12 +49,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "идея для проекта с тестированием.md",
+                "file": "Coding brainage/SQL - Postgre.md",
                 "mode": "source",
-                "source": true
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "идея для проекта с тестированием"
+              "title": "SQL - Postgre"
             }
           }
         ],
@@ -223,8 +223,8 @@
   },
   "active": "baad0c6a3157d3fe",
   "lastOpenFiles": [
-    "conflict-files-obsidian-git.md",
     "идея для проекта с тестированием.md",
+    "conflict-files-obsidian-git.md",
     "Coding brainage/go/planner.md",
     "butlerov.md",
     "Coding brainage/butlerov/planner.md",
