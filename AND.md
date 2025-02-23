@@ -1,0 +1,3 @@
+NAND = NOT(AND)
+AND = NOT(NOT(AND)) = NOT(NAND)
+![[Pasted image 20250223180727.png]]
