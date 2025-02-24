@@ -11,11 +11,15 @@ kanban-plugin: board
 - [ ] [[AND]]
 - [ ] [[NOR]]
 - [ ] [[OR]]
-- [ ] [[XSOR]]
+- [ ] [[XOR]]
 - [ ] [[3OR]]
 - [ ] [[3AND]]
 - [ ] [[XNOR]]
 - [ ] [[ODD signal count]]
+- [ ] [[SUM + CARRY]]
+- [ ] [[FULL ADDER]]
+- [ ] [[SXOR]]
+- [ ] [[BYTE ADDER]]
 
 
 ## Правила
