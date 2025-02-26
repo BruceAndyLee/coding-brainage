@@ -19,18 +19,30 @@ kanban-plugin: board
 - [ ] [[SUM + CARRY]]
 - [ ] [[FULL ADDER]]
 - [ ] [[SXOR]]
+
+
+## 8 bit
+
 - [ ] [[BYTE ADDER]]
+- [ ] [[SIGN INVERTER]]
+
+
+## память
+
+- [ ] [[BIT Retainer]]
+- [ ] [[BIT COPIER]]
 
 
 ## Правила
 
 - [ ] [[Законы Де Моргана]]
+- [ ] [[2's complement]]
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
 ```
 %%

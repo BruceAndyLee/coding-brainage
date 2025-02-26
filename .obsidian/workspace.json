@@ -24,45 +24,38 @@
             }
           },
           {
-            "id": "d1c4b853dfaa66c3",
+            "id": "b2d03322242fc115",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "FULL ADDER.md",
-                "mode": "source",
-                "source": false
+                "file": "Coding brainage/Verilog/Verilog.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "FULL ADDER"
+              "icon": "lucide-trello",
+              "title": "Verilog"
             }
           },
           {
-            "id": "ce4774b28ebca0f1",
+            "id": "76e843bc0a67170b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "XOR.md",
+                "file": "2's complement.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "XOR"
-            }
-          },
-          {
-            "id": "e200ff9d99c699a8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NAND.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "NAND"
+              "title": "2's complement"
             }
           }
         ],
@@ -105,7 +98,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -248,31 +242,35 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d1c4b853dfaa66c3",
+  "active": "b2d03322242fc115",
   "lastOpenFiles": [
+    "SIGN INVERTER.md",
+    "2's complement.md",
+    "entrypoint.md",
+    "Pasted image 20250226234553.png",
     "Coding brainage/Verilog/Verilog.md",
+    "BIT Retainer.md",
+    "Pasted image 20250226231009.png",
+    "BIT COPIER.md",
+    "Pasted image 20250226225718.png",
+    "NAND.md",
+    "XOR.md",
+    "FULL ADDER.md",
     "BYTE ADDER.md",
     "Pasted image 20250225011318.png",
     "SXOR.md",
     "Pasted image 20250225001420.png",
-    "FULL ADDER.md",
-    "entrypoint.md",
     "Pasted image 20250224233943.png",
     "SUM + CARRY.md",
     "Pasted image 20250223233646.png",
     "ODD signal count.md",
     "Pasted image 20250223224812.png",
     "XNOR.md",
-    "XOR.md",
     "Pasted image 20250223221951.png",
     "NOR.md",
     "Pasted image 20250223221440.png",
     "3AND.md",
-    "Pasted image 20250223221322.png",
-    "Pasted image 20250223221306.png",
-    "Pasted image 20250223221113.png",
     "3OR.md",
-    "NAND.md",
     "NOT.md",
     "Законы Де Моргана.md",
     "Excalidraw/Drawing 2025-02-23 18.32.06.excalidraw.md",
@@ -282,11 +280,7 @@
     "Excalidraw",
     "Coding brainage/Verilog/README.md",
     "Coding brainage/Verilog/planner.md",
-    "Coding brainage/SQL - Postgre.md",
     "Coding brainage/Verilog",
-    "Untitled.md",
-    "идея для проекта с тестированием.md",
-    "conflict-files-obsidian-git.md",
     "Coding brainage/butlerov",
     "Coding brainage/tg-scraper-bot",
     "Coding brainage/gigatest",
