@@ -31,6 +31,7 @@ kanban-plugin: board
 
 - [ ] [[BYTE ADDER]]
 - [ ] [[SIGN INVERTER]]
+- [ ] [[LOGIC GATES]]
 
 
 ## память
