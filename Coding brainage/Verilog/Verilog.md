@@ -4,6 +4,33 @@ kanban-plugin: board
 
 ---
 
+## puter
+
+- [ ] [[REGISTERS]]
+
+
+## память
+
+- [ ] [[BIT Retainer]]
+- [ ] [[BIT COPIER]]
+- [ ] [[8 BIT Register]]
+- [ ] [[ADDRESSED MEM ACCESS]]
+- [ ] [[COUNTER]]
+
+
+## decoders
+
+- [ ] [[BIT DECODER]]
+- [ ] [[3 BIT DECODER]]
+
+
+## 8 bit
+
+- [ ] [[BYTE ADDER]]
+- [ ] [[SIGN INVERTER]]
+- [ ] [[LOGIC GATES]]
+
+
 ## Логические схемы
 
 - [ ] [[NAND]]
@@ -21,27 +48,6 @@ kanban-plugin: board
 - [ ] [[SXOR]]
 
 
-## decoders
-
-- [ ] [[BIT DECODER]]
-- [ ] [[3 BIT DECODER]]
-
-
-## 8 bit
-
-- [ ] [[BYTE ADDER]]
-- [ ] [[SIGN INVERTER]]
-- [ ] [[LOGIC GATES]]
-
-
-## память
-
-- [ ] [[BIT Retainer]]
-- [ ] [[BIT COPIER]]
-- [ ] [[8 BIT Register]]
-- [ ] [[ADDRESSED MEM ACCESS]]
-
-
 ## Правила
 
 - [ ] [[Законы Де Моргана]]
@@ -52,6 +58,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false]}
 ```
 %%
