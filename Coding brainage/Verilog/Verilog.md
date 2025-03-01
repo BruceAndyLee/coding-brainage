@@ -21,6 +21,12 @@ kanban-plugin: board
 - [ ] [[SXOR]]
 
 
+## decoders
+
+- [ ] [[BIT DECODER]]
+- [ ] [[3 BIT DECODER]]
+
+
 ## 8 bit
 
 - [ ] [[BYTE ADDER]]
@@ -31,6 +37,8 @@ kanban-plugin: board
 
 - [ ] [[BIT Retainer]]
 - [ ] [[BIT COPIER]]
+- [ ] [[8 BIT Register]]
+- [ ] [[ADDRESSED MEM ACCESS]]
 
 
 ## Правила
@@ -43,6 +51,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
 ```
 %%
