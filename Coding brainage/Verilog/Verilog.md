@@ -4,6 +4,13 @@ kanban-plugin: board
 
 ---
 
+## Правила
+
+- [ ] [[Законы Де Моргана]]
+- [ ] [[2's complement]]
+- [ ] [[Puter]]
+
+
 ## puter
 
 - [ ] [[REGISTERS]]
@@ -46,12 +53,6 @@ kanban-plugin: board
 - [ ] [[SUM + CARRY]]
 - [ ] [[FULL ADDER]]
 - [ ] [[SXOR]]
-
-
-## Правила
-
-- [ ] [[Законы Де Моргана]]
-- [ ] [[2's complement]]
 
 
 
