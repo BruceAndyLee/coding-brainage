@@ -53,7 +53,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "0ae578dbe0c346bb",
@@ -238,11 +238,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "482bc6378854c7ad",
+  "active": "b0ce5b8c6de7eede",
   "lastOpenFiles": [
-    "Coding brainage/Verilog/Verilog.md",
-    "Puter.md",
     "REGISTERS.md",
+    "Puter.md",
+    "Coding brainage/Verilog/Verilog.md",
     "Pasted image 20250302013940.png",
     "COUNTER.md",
     "Pasted image 20250302003740.png",
