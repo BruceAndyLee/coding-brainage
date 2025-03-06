@@ -14,6 +14,7 @@ kanban-plugin: board
 ## puter
 
 - [ ] [[REGISTERS]]
+- [ ] [[1st program]]
 
 
 ## память

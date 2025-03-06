@@ -39,21 +39,21 @@
             }
           },
           {
-            "id": "482bc6378854c7ad",
+            "id": "b6ec9abd8944c15e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Puter.md",
+                "file": "1st program.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Puter"
+              "title": "1st program"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
         "id": "0ae578dbe0c346bb",
@@ -238,11 +238,15 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "b0ce5b8c6de7eede",
+  "active": "b6ec9abd8944c15e",
   "lastOpenFiles": [
+    "Coding brainage/Verilog/Verilog.md",
+    "1st program.md",
+    "XOR.md",
+    "Pasted image 20250306235545.png",
     "REGISTERS.md",
     "Puter.md",
-    "Coding brainage/Verilog/Verilog.md",
+    "BIT Retainer.md",
     "Pasted image 20250302013940.png",
     "COUNTER.md",
     "Pasted image 20250302003740.png",
@@ -259,14 +263,11 @@
     "BIT COPIER.md",
     "8 BIT Register.md",
     "3 BIT DECODER.md",
-    "Pasted image 20250301181726.png",
     "BIT DECODER.md",
-    "BIT Retainer.md",
     "NOR.md",
     "2's complement.md",
     "SIGN INVERTER.md",
     "NAND.md",
-    "XOR.md",
     "FULL ADDER.md",
     "BYTE ADDER.md",
     "SXOR.md",
@@ -275,7 +276,6 @@
     "XNOR.md",
     "3AND.md",
     "3OR.md",
-    "NOT.md",
     "Excalidraw",
     "Coding brainage/Verilog",
     "Coding brainage/butlerov",
