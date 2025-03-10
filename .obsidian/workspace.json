@@ -6,7 +6,6 @@
       {
         "id": "d4094e394a65fe50",
         "type": "tabs",
-        "dimension": 64.78537360890301,
         "children": [
           {
             "id": "694d5e95c7d72bfd",
@@ -25,17 +24,26 @@
             }
           },
           {
-            "id": "01a274dfe5f790b0",
+            "id": "eab42ebd437032e5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "REGISTERS.md",
-                "mode": "source",
-                "source": false
+                "file": "Coding brainage/Verilog/Verilog.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "REGISTERS"
+              "icon": "lucide-trello",
+              "title": "Verilog"
             }
           },
           {
@@ -44,34 +52,33 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "1st program.md",
+                "file": "GUESS NUMBER (linear).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1st program"
+              "title": "GUESS NUMBER (linear)"
             }
           }
         ],
         "currentTab": 2
       },
       {
-        "id": "0ae578dbe0c346bb",
+        "id": "96b0f6eed6005c4c",
         "type": "tabs",
-        "dimension": 35.214626391096985,
         "children": [
           {
-            "id": "b0ce5b8c6de7eede",
+            "id": "f2e2dc9885009cc5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BIT Retainer.md",
+                "file": "LOGIC CORE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BIT Retainer"
+              "title": "LOGIC CORE"
             }
           }
         ]
@@ -240,11 +247,14 @@
   },
   "active": "b6ec9abd8944c15e",
   "lastOpenFiles": [
+    "LOGIC CORE.md",
     "Coding brainage/Verilog/Verilog.md",
+    "ALU.md",
+    "GUESS NUMBER (linear).md",
+    "REGISTERS.md",
     "1st program.md",
     "XOR.md",
     "Pasted image 20250306235545.png",
-    "REGISTERS.md",
     "Puter.md",
     "BIT Retainer.md",
     "Pasted image 20250302013940.png",
@@ -273,9 +283,6 @@
     "SXOR.md",
     "SUM + CARRY.md",
     "ODD signal count.md",
-    "XNOR.md",
-    "3AND.md",
-    "3OR.md",
     "Excalidraw",
     "Coding brainage/Verilog",
     "Coding brainage/butlerov",

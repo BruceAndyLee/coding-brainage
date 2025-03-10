@@ -14,7 +14,10 @@ kanban-plugin: board
 ## puter
 
 - [ ] [[REGISTERS]]
+- [ ] [[ALU]]
+- [ ] [[LOGIC CORE]]
 - [ ] [[1st program]]
+- [ ] [[GUESS NUMBER (linear)]]
 
 
 ## память
