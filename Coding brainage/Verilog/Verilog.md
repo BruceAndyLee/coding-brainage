@@ -18,6 +18,7 @@ kanban-plugin: board
 - [ ] [[LOGIC CORE]]
 - [ ] [[1st program]]
 - [ ] [[GUESS NUMBER (linear)]]
+- [ ] [[SHOOT RATS]]
 
 
 ## память

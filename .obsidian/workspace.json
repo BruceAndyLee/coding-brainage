@@ -52,12 +52,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GUESS NUMBER (linear).md",
+                "file": "SHOOT RATS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GUESS NUMBER (linear)"
+              "title": "SHOOT RATS"
             }
           }
         ],
@@ -247,10 +247,12 @@
   },
   "active": "b6ec9abd8944c15e",
   "lastOpenFiles": [
-    "LOGIC CORE.md",
     "Coding brainage/Verilog/Verilog.md",
-    "ALU.md",
+    "SHOOT RATS.md",
     "GUESS NUMBER (linear).md",
+    "LOGIC CORE.md",
+    "Pasted image 20250310220851.png",
+    "ALU.md",
     "REGISTERS.md",
     "1st program.md",
     "XOR.md",
@@ -269,7 +271,6 @@
     "Pasted image 20250301193434.png",
     "Pasted image 20250301192955.png",
     "Pasted image 20250301192952.png",
-    "Pasted image 20250301192519.png",
     "BIT COPIER.md",
     "8 BIT Register.md",
     "3 BIT DECODER.md",
@@ -282,7 +283,6 @@
     "BYTE ADDER.md",
     "SXOR.md",
     "SUM + CARRY.md",
-    "ODD signal count.md",
     "Excalidraw",
     "Coding brainage/Verilog",
     "Coding brainage/butlerov",
