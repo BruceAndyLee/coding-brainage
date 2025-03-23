@@ -30,17 +30,19 @@ kanban-plugin: board
 - [ ] [[COUNTER]]
 
 
-## decoders
-
-- [ ] [[BIT DECODER]]
-- [ ] [[3 BIT DECODER]]
-
-
 ## 8 bit
 
 - [ ] [[BYTE ADDER]]
 - [ ] [[SIGN INVERTER]]
 - [ ] [[LOGIC GATES]]
+- [ ] [[UNSIGNED LESS]]
+- [ ] [[SIGNED LESS]]
+
+
+## decoders
+
+- [ ] [[BIT DECODER]]
+- [ ] [[3 BIT DECODER]]
 
 
 ## Логические схемы
