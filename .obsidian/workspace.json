@@ -24,26 +24,53 @@
             }
           },
           {
-            "id": "d1c4b853dfaa66c3",
+            "id": "0a449d42178780a6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Node.js roadmap.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Node.js roadmap"
+            }
+          },
+          {
+            "id": "a926e286932fb054",
             "type": "leaf",
             "state": {
               "type": "kanban",
               "state": {
-                "file": "Coding brainage/go/planner.md",
+                "file": "Coding brainage/backend/backend.md",
                 "kanbanViewState": {
                   "kanban-plugin": "board",
                   "list-collapse": [
-                    false,
-                    false,
                     false
                   ]
                 }
               },
               "icon": "lucide-trello",
-              "title": "planner"
+              "title": "backend"
+            }
+          },
+          {
+            "id": "a8a2ab97ed493d0c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Coding brainage/bash/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -75,7 +102,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "цель",
+                "query": "ffmpeg",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,43 +233,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "694d5e95c7d72bfd",
+  "active": "a8a2ab97ed493d0c",
   "lastOpenFiles": [
-    "Coding brainage/go/planner.md",
-    "Coding brainage/go/go.md",
-    "entrypoint.md",
-    "Coding brainage/butlerov/planner.md",
-    "Coding brainage/butlerov/README.md",
-    "butlerov.md",
-    "Coding brainage/gigatest/README.md",
-    "идея для проекта с тестированием.md",
-    "Coding brainage/butlerov",
-    "Coding brainage/tg-scraper-bot/planner.md",
-    "Coding brainage/tg-scraper-bot/README.md",
-    "Coding brainage/tg-scraper-bot",
-    "Coding brainage/gigatest/planner.md",
-    "Coding brainage/gigatest",
-    "Coding brainage/ECMA Script/html + html5/Untitled.md",
-    "Templates/project-readme-template.md",
-    "Templates/project-planner-template.md",
-    "Templates/create-project.md",
-    "Coding brainage/tg-scraper bot/planner.md",
-    "vault/vault planner.md",
-    "Coding brainage/tg-scraper bot/README.md",
+    "Coding brainage/bash/planner.md",
     "Coding brainage/linuxing/planner.md",
-    "Coding brainage/brainfuck/planner.md",
-    "Coding brainage/tg-scraper bot",
-    "Coding brainage/brainfuck/README.md",
-    "Coding brainage/brainfuck",
     "Coding brainage/linuxing/README.md",
-    "Coding brainage/linuxing",
-    "README.md",
-    "Coding brainage/README.md",
-    "Coding brainage/LOL_NEW_PROJECT.md",
+    "Coding brainage/bash/README.md",
+    "Coding brainage/rust/rust.md",
+    "Coding brainage/bash",
+    "Coding brainage/rust/README.md",
+    "Coding brainage/orbiter/orbiter planner.md",
+    "Coding brainage/rust/planner.md",
+    "Coding brainage/rust",
     "Untitled 1.md",
-    "Coding brainage/UNTITLED_PROJECT",
-    "LOL",
-    "vault",
-    "Coding brainage/orbiter"
+    "Coding brainage/orbiter/orbiter.md",
+    "Coding brainage/orbiter/readme.md",
+    "Coding brainage/welding/scheming.md",
+    "Coding brainage/welding/planner.md",
+    "USB-A.md",
+    "Coding brainage/welding/README.md",
+    "Coding brainage/go/go.md",
+    "Coding brainage/go/planner.md",
+    "Coding brainage/devops/planner.md",
+    "Coding brainage/epicly stacked.md",
+    "Coding brainage/Vue/Vue.md",
+    "Coding brainage/brainfuck/planner.md",
+    "Coding brainage/brainfuck/README.md",
+    "Coding brainage/backend/backend.md",
+    "Coding brainage/devops/devops.md",
+    "Coding brainage/butlerov/planner.md",
+    "Excalidraw/USB-A 2025-04-07 23.51.18.excalidraw.md",
+    "Excalidraw",
+    "Coding brainage/welding",
+    "Coding brainage/backend",
+    "Coding brainage/butlerov",
+    "Coding brainage/tg-scraper-bot",
+    "Coding brainage/gigatest",
+    "Coding brainage/tg-scraper bot",
+    "Coding brainage/brainfuck"
   ]
 }
