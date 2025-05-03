@@ -1,3 +1,6 @@
 {
-  "cssTheme": "Things"
+  "cssTheme": "Things",
+  "enabledCssSnippets": [
+    "preview"
+  ]
 }
