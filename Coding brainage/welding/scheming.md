@@ -6,8 +6,10 @@ kanban-plugin: board
 
 ## parts
 
-- [ ] diode
+- [ ] [[power source]]
+- [ ] [[diode]]
 - [ ] transistor
+- [ ] photoresistor
 
 
 ## connectors
