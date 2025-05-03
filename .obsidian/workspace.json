@@ -27,20 +27,14 @@
             "id": "e490046f71b70e23",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Coding brainage/welding/scheming.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "ANALOG READ & WRITE.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "scheming"
+              "icon": "lucide-file",
+              "title": "ANALOG READ & WRITE"
             }
           }
         ],
@@ -209,8 +203,9 @@
   },
   "active": "e490046f71b70e23",
   "lastOpenFiles": [
-    "Excalidraw/Drawing 2025-05-03 18.16.31.excalidraw.md",
+    "Coding brainage/arduino/planner.md",
     "Coding brainage/welding/scheming.md",
+    "Excalidraw/Drawing 2025-05-03 18.16.31.excalidraw.md",
     "Excalidraw/Drawing 2025-05-03 18.19.23.excalidraw.md",
     "diode.md",
     "entrypoint.md",
@@ -220,7 +215,6 @@
     "ANALOG READ & WRITE.md",
     "Coding brainage/С",
     "Untitled 5.md",
-    "Coding brainage/arduino/planner.md",
     "ANALOG WRITE.md",
     "BINARY COUNTER.md",
     "Coding brainage/arduino/README.md",
