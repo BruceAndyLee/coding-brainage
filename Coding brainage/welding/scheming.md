@@ -9,7 +9,10 @@ kanban-plugin: board
 - [ ] [[power source]]
 - [ ] [[diode]]
 - [ ] transistor
-- [ ] photoresistor
+- [ ] [[photoresistor]]
+- [ ] [[RGB diode]]
+- [ ] [[Servo]]
+- [ ] [[Pushbutton]]
 
 
 ## connectors
