@@ -45,12 +45,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Toggle w/ pushbutton.md",
+                "file": "Stepper motor control.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "pushbutton"
+              "title": "Stepper motor control"
             }
           },
           {
@@ -239,16 +239,20 @@
   },
   "active": "19de1e2dc24acc86",
   "lastOpenFiles": [
-    "Pushbutton.md",
-    "Toggle w/ pushbutton.md",
+    "Stepper motor.md",
+    "Screenshot 2025-05-06 at 00.20.36.png",
+    "Screenshot 2025-05-06 at 00.20.16.png",
+    "Stepper motor control.md",
     "Coding brainage/arduino/planner.md",
-    "Toggle w",
+    "analog reader code.md",
     "Coding brainage/welding/scheming.md",
+    "entrypoint.md",
+    "Toggle w/Toggle with pushbutton.md",
+    "Pushbutton.md",
+    "Toggle w",
     "Excalidraw/Drawing 2025-05-04 19.45.28.excalidraw.md",
     "Excalidraw/Drawing 2025-05-04 19.29.14.excalidraw.md",
     "Coding brainage/arduino/README.md",
-    "entrypoint.md",
-    "analog reader code.md",
     "photoresistor.md",
     "Excalidraw/Drawing 2025-05-04 18.35.14.excalidraw.md",
     "Serial write & read.md",
@@ -263,9 +267,6 @@
     "Coding brainage/must-know blabla.md",
     "Coding brainage/QUIRKY.md",
     "Coding brainage/profiling.md",
-    "Coding brainage/licensing.md",
-    "Coding brainage/GPU.md",
-    "Coding brainage/html5.md",
     "Pasted image 20250223180410.png",
     "Pasted image 20250323224143.png",
     "Pasted image 20250323220117.png",
@@ -274,8 +275,6 @@
     "Pasted image 20250306235545.png",
     "Pasted image 20250302013940.png",
     "Pasted image 20250302003740.png",
-    "Pasted image 20250302003335.png",
-    "Pasted image 20250301231801.png",
     "Coding brainage/Verilog",
     "Coding brainage/С",
     "Coding brainage/arduino",

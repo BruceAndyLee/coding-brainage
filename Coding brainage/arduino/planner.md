@@ -13,7 +13,7 @@ kanban-plugin: board
 ## in-progress
 
 - [ ] завести файл README с основными идеями
-- [ ] [[Toggle w/ pushbutton]]
+- [ ] [[Stepper motor control]]
 
 
 ## completed
@@ -25,6 +25,7 @@ kanban-plugin: board
 - [ ] [[Serial + potentiometer for RGB]]
 - [ ] [[Servo]]
 - [ ] [[photoresistor]]
+- [ ] [[Toggle with pushbutton]]
 
 
 ## ideas/backlog

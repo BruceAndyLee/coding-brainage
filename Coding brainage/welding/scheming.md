@@ -13,6 +13,7 @@ kanban-plugin: board
 - [ ] [[RGB diode]]
 - [ ] [[Servo]]
 - [ ] [[Pushbutton]]
+- [ ] [[Stepper motor]]
 
 
 ## connectors
