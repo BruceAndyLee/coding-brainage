@@ -4,6 +4,11 @@ kanban-plugin: board
 
 ---
 
+## devices
+
+- [ ] [[Serial2Parallel shift register]]
+
+
 ## parts
 
 - [ ] [[power source]]
@@ -37,6 +42,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
 ```
 %%
