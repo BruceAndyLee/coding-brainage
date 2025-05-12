@@ -37,6 +37,7 @@ kanban-plugin: board
 - [ ] [[LOGIC GATES]]
 - [ ] [[UNSIGNED LESS]]
 - [ ] [[SIGNED LESS]]
+- [ ] [[CIRCULAR SHIFT LEFT]]
 
 
 ## decoders
