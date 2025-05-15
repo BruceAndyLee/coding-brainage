@@ -414,20 +414,6 @@ docker network inspect node-docker_default
 
 ## Использование process.env
 
-  
-
-## Команды
-
-```Bash
-# удалить все контейнеры
-docker rm -f $(docker ps -a -q)
-
-# удалить все локальные тома
-docker volume rm $(docker volume ls -q)
-
-# удалить все образы
-docker rmi $(docker images -a -q)
-```
 
   
 
