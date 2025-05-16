@@ -27,20 +27,14 @@
             "id": "d1c4b853dfaa66c3",
             "type": "leaf",
             "state": {
-              "type": "kanban",
+              "type": "markdown",
               "state": {
-                "file": "Coding brainage/STM32/planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
+                "file": "идея для проекта с тестированием.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-trello",
-              "title": "planner"
+              "icon": "lucide-file",
+              "title": "идея для проекта с тестированием"
             }
           }
         ],
@@ -76,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "FSMTestsetup",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +91,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -209,9 +204,9 @@
   },
   "active": "d1c4b853dfaa66c3",
   "lastOpenFiles": [
+    "Coding brainage/STM32/planner.md",
     "Coding brainage/STM32/README.md",
     "Coding brainage/arduino/planner.md",
-    "Coding brainage/STM32/planner.md",
     "Coding brainage/STM32",
     "Coding brainage/arduino/README.md",
     "rotation description.md",
