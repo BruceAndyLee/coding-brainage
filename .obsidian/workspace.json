@@ -269,6 +269,9 @@
   },
   "active": "db11318d8e683b2a",
   "lastOpenFiles": [
+    "Coding brainage/STM32/planner.md",
+    "Coding brainage/STM32/README.md",
+    "Coding brainage/STM32",
     "Serial write & read.md",
     "Coding brainage/arduino/planner.md",
     "Servo.md",
@@ -296,8 +299,6 @@
     "photoresistor.md",
     "Excalidraw/Drawing 2025-05-04 18.35.14.excalidraw.md",
     "Serial + potentiometer for RGB.md",
-    "RGB diode.md",
-    "Coding brainage/welding/planner.md",
     "Pasted image 20250223180410.png",
     "Pasted image 20250323224143.png",
     "Pasted image 20250323220117.png",
@@ -313,7 +314,6 @@
     "Coding brainage/bash",
     "Coding brainage/rust",
     "Excalidraw",
-    "Coding brainage/welding",
-    "Coding brainage/backend"
+    "Coding brainage/welding"
   ]
 }
