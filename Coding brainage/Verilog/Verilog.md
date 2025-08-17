@@ -38,6 +38,7 @@ kanban-plugin: board
 - [ ] [[UNSIGNED LESS]]
 - [ ] [[SIGNED LESS]]
 - [ ] [[CIRCULAR SHIFT LEFT]]
+- [ ] [[Wide Instructions]]
 
 
 ## decoders

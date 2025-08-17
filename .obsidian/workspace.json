@@ -40,71 +40,21 @@
             }
           },
           {
-            "id": "bf25da0f01a84e7e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "kanban",
-              "state": {
-                "file": "Coding brainage/arduino/planner.md",
-                "kanbanViewState": {
-                  "kanban-plugin": "board",
-                  "list-collapse": [
-                    false,
-                    false,
-                    false
-                  ]
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-trello",
-              "title": "planner"
-            }
-          },
-          {
-            "id": "9cffa5fd05cad10b",
+            "id": "f23e797405f5fd4d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Serial write & read.md",
+                "file": "Wide Instructions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Serial write & read"
-            }
-          },
-          {
-            "id": "db11318d8e683b2a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Servo.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Servo"
-            }
-          },
-          {
-            "id": "36f0d2202483b697",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Serial write & read.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Serial write & read"
+              "title": "Wide Instructions"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -161,7 +111,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4e47f162fbabf3fa",
@@ -267,53 +218,53 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "db11318d8e683b2a",
+  "active": "f23e797405f5fd4d",
   "lastOpenFiles": [
+    "Pasted image 20250817233250.png",
+    "Coding brainage/Verilog/Verilog.md",
+    "Wide Instructions.md",
+    "entrypoint.md",
+    "2's complement.md",
+    "SIGNED LESS.md",
+    "Pasted image 20250817225652.png",
+    "UNSIGNED LESS.md",
+    "XOR.md",
+    "Screenshot 2025-08-17 at 19.12.51.png",
+    " 1",
+    "Coding brainage/Verilog/README.md",
+    "Coding brainage/Verilog/planner.md",
+    "Coding brainage/UNIX/OS.md",
+    "Coding brainage/UNIX/planner.md",
+    "Coding brainage/UNIX/README.md",
     "Coding brainage/STM32/planner.md",
+    "Coding brainage/UNIX",
+    "Untitled.md",
+    "analog reader code.md",
+    "Serial write & read.md",
+    "Servo.md",
+    "Coding brainage/arduino/planner.md",
     "Coding brainage/STM32/README.md",
     "Coding brainage/STM32",
-    "Serial write & read.md",
-    "Coding brainage/arduino/planner.md",
-    "Servo.md",
-    "entrypoint.md",
-    "Coding brainage/Verilog/Verilog.md",
     "Serial2Parallel shift register.md",
     "Excalidraw/Drawing 2025-05-12 23.56.30.excalidraw.md",
     "ShiftRegister script.md",
     "CIRCULAR SHIFT LEFT.md",
     "Stepper motor button control.md",
     "Coding brainage/welding/scheming.md",
-    "Stepper motor script.md",
-    "analog reader code.md",
-    "Toggle w/Toggle with pushbutton.md",
-    "Coding brainage/Verilog/planner.md",
-    "Stepper motor.md",
-    "ANALOG READ & WRITE.md",
     "Screenshot 2025-05-06 at 00.20.36.png",
     "Screenshot 2025-05-06 at 00.20.16.png",
-    "Pushbutton.md",
     "Toggle w",
-    "Excalidraw/Drawing 2025-05-04 19.45.28.excalidraw.md",
-    "Excalidraw/Drawing 2025-05-04 19.29.14.excalidraw.md",
-    "Coding brainage/arduino/README.md",
-    "photoresistor.md",
-    "Excalidraw/Drawing 2025-05-04 18.35.14.excalidraw.md",
-    "Serial + potentiometer for RGB.md",
     "Pasted image 20250223180410.png",
     "Pasted image 20250323224143.png",
     "Pasted image 20250323220117.png",
     "Pasted image 20250323214900.png",
     "Pasted image 20250310220851.png",
     "Pasted image 20250306235545.png",
-    "Pasted image 20250302013940.png",
-    "Pasted image 20250302003740.png",
     "Coding brainage/Verilog",
     "Coding brainage/С",
     "Coding brainage/arduino",
     "Coding brainage/ascii-3d-render",
     "Coding brainage/bash",
-    "Coding brainage/rust",
-    "Excalidraw",
-    "Coding brainage/welding"
+    "Coding brainage/rust"
   ]
 }
