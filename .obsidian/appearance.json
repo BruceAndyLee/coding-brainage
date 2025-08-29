@@ -1,6 +1,7 @@
 {
-  "cssTheme": "Things",
+  "cssTheme": "Wasp",
   "enabledCssSnippets": [
     "preview"
-  ]
+  ],
+  "theme": "obsidian"
 }

@@ -19,6 +19,7 @@ kanban-plugin: board
 - [ ] [[1st program]]
 - [ ] [[GUESS NUMBER (linear)]]
 - [ ] [[SHOOT RATS]]
+- [ ] [[LEG assembler]]
 
 
 ## память
@@ -28,6 +29,7 @@ kanban-plugin: board
 - [ ] [[8 BIT Register]]
 - [ ] [[ADDRESSED MEM ACCESS]]
 - [ ] [[COUNTER]]
+- [ ] [[LEG RAM]]
 
 
 ## 8 bit
