@@ -8,7 +8,6 @@ flatten filter(file.tasks, (t) => meta(t.section).subpath != "completed") as tas
 sort file.mtime desc
 limit 10
 ```
-
 ## [[go/planner|go]]
 ```dataview
 TABLE WITHOUT ID
