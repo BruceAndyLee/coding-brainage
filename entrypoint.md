@@ -1,3 +1,31 @@
+
+## Verilog
+
+```base
+filters:
+  and:
+    - file.inFolder("Coding brainage/Verilog")
+    - not:
+        - file.inFolder("Coding brainage/Verilog/attachements")
+views:
+  - type: table
+    name: Table
+  - type: cards
+    name: View
+    
+properties:
+	tags:
+		displayName: Tags
+
+```
+
+## StochL
+```base
+filters:
+	and:
+	    - file.inFolder("Coding brainage/stochastic L-system")
+```
+
 ## [[Coding brainage/tg-scraper-bot/planner|tg-scraper]]
 ```dataview
 TABLE WITHOUT ID

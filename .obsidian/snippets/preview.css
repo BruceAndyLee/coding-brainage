@@ -2,3 +2,8 @@
   --popover-width: 850px;
   --popover-height: 700px;
 }
+
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  color: #00a491 !important;
+  text-shadow: 0 0 5px #47cd97a8;
+}

@@ -40,17 +40,17 @@
             }
           },
           {
-            "id": "f23e797405f5fd4d",
+            "id": "5103a1160651dd6a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Wide Instructions.md",
+                "file": "Coding brainage/stochastic L-system/Описать проблематику и набросать примеры.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wide Instructions"
+              "title": "Описать проблематику и набросать примеры"
             }
           }
         ],
@@ -86,7 +86,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "ffmpeg",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -111,8 +111,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "4e47f162fbabf3fa",
@@ -205,6 +204,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -218,53 +218,53 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f23e797405f5fd4d",
+  "active": "5103a1160651dd6a",
   "lastOpenFiles": [
-    "Pasted image 20250817233250.png",
-    "Coding brainage/Verilog/Verilog.md",
-    "Wide Instructions.md",
     "entrypoint.md",
-    "2's complement.md",
-    "SIGNED LESS.md",
-    "Pasted image 20250817225652.png",
-    "UNSIGNED LESS.md",
-    "XOR.md",
-    "Screenshot 2025-08-17 at 19.12.51.png",
-    " 1",
-    "Coding brainage/Verilog/README.md",
-    "Coding brainage/Verilog/planner.md",
-    "Coding brainage/UNIX/OS.md",
-    "Coding brainage/UNIX/planner.md",
-    "Coding brainage/UNIX/README.md",
-    "Coding brainage/STM32/planner.md",
-    "Coding brainage/UNIX",
+    "Coding brainage/stochastic L-system/Описать проблематику и набросать примеры.md",
+    "Coding brainage/stochastic L-system/planner.md",
+    "Coding brainage/stochastic L-system/Описать user-flow ядра.md",
+    "Coding brainage/stochastic L-system/README.md",
+    "Coding brainage/stochastic L-system",
     "Untitled.md",
-    "analog reader code.md",
-    "Serial write & read.md",
-    "Servo.md",
-    "Coding brainage/arduino/planner.md",
-    "Coding brainage/STM32/README.md",
-    "Coding brainage/STM32",
-    "Serial2Parallel shift register.md",
     "Excalidraw/Drawing 2025-05-12 23.56.30.excalidraw.md",
-    "ShiftRegister script.md",
-    "CIRCULAR SHIFT LEFT.md",
-    "Stepper motor button control.md",
-    "Coding brainage/welding/scheming.md",
+    "Coding brainage/Verilog/SHOOT RATS.md",
+    "Coding brainage/Verilog/USB-A.md",
+    "Coding brainage/Verilog/UNSIGNED LESS.md",
+    "идея для проекта с тестированием.md",
+    "Прерывание.md",
+    "Привилегированный режим.md",
+    "Программное прерывание.md",
+    "RGB diode.md",
+    "rotation description.md",
     "Screenshot 2025-05-06 at 00.20.36.png",
     "Screenshot 2025-05-06 at 00.20.16.png",
+    "README.md",
+    "Pushbutton.md",
+    "power source.md",
+    "express + mongo orm.md",
+    "Docker cli.md",
+    "diode.md",
+    "CIRCULAR SHIFT LEFT.md",
+    "Coding brainage/arduino/byte-print macro.md",
+    "Coding brainage/arduino/ANALOG READ & WRITE.md",
+    "Coding brainage/arduino/ANALOG WRITE.md",
+    "Coding brainage/Verilog/attachements/Screenshot 2025-08-17 at 19.12.51.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250817233250.png",
+    "Coding brainage/Verilog/attachements",
+    "verilog",
+    "Coding brainage/Verilog/attachements/Pasted image 20250301192955.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250301193434.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250301192519.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250225011318.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250224233943.png",
+    "Coding brainage/Verilog/attachements/Pasted image 20250223233646.png",
+    "Untitled.base",
+    "Coding brainage/Verilog/base.base",
+    " 1",
+    "Coding brainage/UNIX",
+    "Coding brainage/STM32",
     "Toggle w",
-    "Pasted image 20250223180410.png",
-    "Pasted image 20250323224143.png",
-    "Pasted image 20250323220117.png",
-    "Pasted image 20250323214900.png",
-    "Pasted image 20250310220851.png",
-    "Pasted image 20250306235545.png",
-    "Coding brainage/Verilog",
-    "Coding brainage/С",
-    "Coding brainage/arduino",
-    "Coding brainage/ascii-3d-render",
-    "Coding brainage/bash",
-    "Coding brainage/rust"
+    "Coding brainage/Verilog"
   ]
 }
