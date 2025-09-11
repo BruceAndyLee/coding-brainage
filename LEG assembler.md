@@ -12,7 +12,7 @@
 ## 1. opcode
 0000 0000 # ADD
 0000 0001 # SUB 
-0000 0010 # AND
+0000 0010 # AND 
 0000 0011 # OR
 0000 0100 # NOT
 0000 0101 # XOR
@@ -20,7 +20,7 @@
 xx01 0000 # 32 if eq
 xx01 0001 # 33 if neq
 xx01 0010 # 34 if l
-xx01 0011 # 35 if leq
+xx01 0011 # 35 if leqe
 xx01 0100 # 36 if g
 xx01 0101 # 37 if geq
 

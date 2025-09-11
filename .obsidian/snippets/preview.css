@@ -2,3 +2,8 @@
   --popover-width: 850px;
   --popover-height: 700px;
 }
+
+span.cm-inline-code {
+  box-shadow: 0 0 5px #c7c7c7;
+  background-color: #746c6c;
+}
