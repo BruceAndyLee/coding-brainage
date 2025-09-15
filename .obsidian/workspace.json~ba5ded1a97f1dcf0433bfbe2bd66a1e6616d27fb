@@ -1,0 +1,291 @@
+{
+  "main": {
+    "id": "99d4cee0376f605c",
+    "type": "split",
+    "children": [
+      {
+        "id": "d4094e394a65fe50",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "faee472af02ba6fc",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "analog reader code.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "analog reader code"
+            }
+          },
+          {
+            "id": "694d5e95c7d72bfd",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "entrypoint.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "entrypoint"
+            }
+          },
+          {
+            "id": "9c3fb1f5297db89e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LEG RAM.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LEG RAM"
+            }
+          }
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "d66adaa0b52b0c05",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c269107e7c55345b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LEG assembler.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LEG assembler"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1bfdb44318ab8e95",
+    "type": "split",
+    "children": [
+      {
+        "id": "579cd6419e01085f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7837dc5b6ddd3a9b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "54abd8d237fd9f72",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "ffmpeg",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "c44b5505cba035c5",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "4e47f162fbabf3fa",
+    "type": "split",
+    "children": [
+      {
+        "id": "b14232e3d84d8880",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9b5fb0b5e4b756b1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Coding brainage/tg-scraper bot/planner.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for planner"
+            }
+          },
+          {
+            "id": "35a1193964b7e39e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Coding brainage/QUIRKY.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from QUIRKY"
+            }
+          },
+          {
+            "id": "45b10f3f0a17df7c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "81fae991261a3833",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "идея для проекта с тестированием.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of идея для проекта с тестированием"
+            }
+          },
+          {
+            "id": "621e9fc3ace9dfd2",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "git-view"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 398.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-kanban:Create new board": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "c269107e7c55345b",
+  "lastOpenFiles": [
+    "LEG RAM.md",
+    "LEG assembler.md",
+    "Wide Instructions.md",
+    "Coding brainage/Verilog/Verilog.md",
+    "entrypoint.md",
+    "Pasted image 20250817233250.png",
+    "2's complement.md",
+    "SIGNED LESS.md",
+    "Pasted image 20250817225652.png",
+    "UNSIGNED LESS.md",
+    "XOR.md",
+    "Screenshot 2025-08-17 at 19.12.51.png",
+    " 1",
+    "Coding brainage/Verilog/README.md",
+    "Coding brainage/Verilog/planner.md",
+    "Coding brainage/UNIX/OS.md",
+    "Coding brainage/UNIX/planner.md",
+    "Coding brainage/UNIX/README.md",
+    "Coding brainage/STM32/planner.md",
+    "Coding brainage/UNIX",
+    "Untitled.md",
+    "analog reader code.md",
+    "Serial write & read.md",
+    "Servo.md",
+    "Coding brainage/arduino/planner.md",
+    "Coding brainage/STM32/README.md",
+    "Coding brainage/STM32",
+    "Serial2Parallel shift register.md",
+    "Excalidraw/Drawing 2025-05-12 23.56.30.excalidraw.md",
+    "ShiftRegister script.md",
+    "CIRCULAR SHIFT LEFT.md",
+    "Stepper motor button control.md",
+    "Screenshot 2025-05-06 at 00.20.36.png",
+    "Screenshot 2025-05-06 at 00.20.16.png",
+    "Toggle w",
+    "Pasted image 20250223180410.png",
+    "Pasted image 20250323224143.png",
+    "Pasted image 20250323220117.png",
+    "Pasted image 20250323214900.png",
+    "Pasted image 20250310220851.png",
+    "Coding brainage/Verilog",
+    "Coding brainage/С",
+    "Coding brainage/arduino",
+    "Coding brainage/ascii-3d-render",
+    "Coding brainage/bash",
+    "Coding brainage/rust"
+  ]
+}
