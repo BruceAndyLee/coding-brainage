@@ -2,5 +2,6 @@
   "promptDelete": false,
   "readableLineLength": false,
   "alwaysUpdateLinks": true,
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "attachmentFolderPath": "./attachments"
 }

@@ -3,7 +3,7 @@
   --popover-height: 700px;
 }
 
-span.cm-inline-code {
-  box-shadow: 0 0 5px #c7c7c7;
-  background-color: #746c6c;
+.cm-s-obsidian div.HyperMD-codeblock-bg {
+  color: #00a491 !important;
+  text-shadow: 0 0 5px #47cd97a8;
 }
