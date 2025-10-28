@@ -19,7 +19,7 @@ kanban-plugin: board
 - [ ] [[1st program]]
 - [ ] [[GUESS NUMBER (linear)]]
 - [ ] [[SHOOT RATS]]
-- [ ] [[LEG assembler]]
+- [ ] [[LEG opcodes]]
 
 
 ## память

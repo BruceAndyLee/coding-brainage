@@ -9,10 +9,16 @@ kanban-plugin: board
 - [ ] [[curl]]
 
 
+## base
+
+- [ ] [[pattern-matching]]
+- [ ] [[printf-ing]]
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false]}
+{"kanban-plugin":"board","list-collapse":[false,false]}
 ```
 %%
