@@ -13,6 +13,7 @@ kanban-plugin: board
 
 - [ ] [[pattern-matching]]
 - [ ] [[printf-ing]]
+- [ ] [[case-esac]]
 
 
 

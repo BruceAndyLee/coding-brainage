@@ -50,3 +50,19 @@ ${var%%pattern} - remove suffix (longest/greedy)
 ${var/pattern/replacement} - replace first match
 ${var//pattern/replacement} - replace all matches
 ```
+
+```bash
+# layf example
+
+# look at this bitch!!!
+files=(./backend/tests/integration/*)
+
+for ((i=0; i < ${#files[@]}; i++)); do
+  filename_slug=$(basename "${files[i]}")
+  if [[ "$filename_slug" != test_* ]]; then
+    "mv ${files[i]} ./backend/tests/integration/${filename_slug}"
+  else
+    "mv ${files[i]} ./backend/tests/integration/test_$(printf "%03d" ${i})_${filename_slug#test_}"
+  fi
+done
+```
