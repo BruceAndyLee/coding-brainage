@@ -20,6 +20,7 @@ kanban-plugin: board
 - [ ] [[GUESS NUMBER (linear)]]
 - [ ] [[SHOOT RATS]]
 - [ ] [[LEG opcodes]]
+- [ ] [[STACK]]
 
 
 ## память
