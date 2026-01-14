@@ -4,6 +4,12 @@ kanban-plugin: board
 
 ---
 
+## scripting
+
+- [ ] [[sys and os]]
+- [ ] [[py pattern matching]]
+
+
 ## runtime and classes
 
 - [ ] [[modules]]
@@ -13,11 +19,13 @@ kanban-plugin: board
 - [ ] [[metaclass]]
 - [ ] [[class instantiation]]
 - [ ] [[dataclass]]
+- [ ] [[python memory management]]
 
 
 ## specs & frameworks
 
 - [ ] [[wsgi asgi]]
+- [ ] [[python-w-c]]
 
 
 ## testing
@@ -34,6 +42,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false]}
 ```
 %%

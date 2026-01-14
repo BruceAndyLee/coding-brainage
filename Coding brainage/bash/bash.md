@@ -14,12 +14,18 @@ kanban-plugin: board
 - [ ] [[pattern-matching]]
 - [ ] [[printf-ing]]
 - [ ] [[case-esac]]
+- [ ] [[quoting rules]]
+
+
+## synergies
+
+- [ ] [[processes]]
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false]}
 ```
 %%

@@ -6,6 +6,11 @@ tags:
 ---
 Learn: [oh my git](https://ohmygit.org)
 
+See what the file is like in a different branch (W/O CHECKOUT):
+```bash
+git show <target-branch>:<path/to/file>
+```
+
 ---
 
 ```Bash
@@ -13,17 +18,30 @@ Learn: [oh my git](https://ohmygit.org)
 git revert -m 1 <merge_commit_sha>
 ```
 
+Конфликты мерджинга
 ```Bash
 # разрешение конфликтов
 git checkout --theirs path/to/file
 git checkout --ours path/to/file
+
+# вернуть всё как было если пошла дичь
+git merge --abort
 ```
 
+Выбрасываем из staged
+```bash
+git restore --staged <path/to/file.ext>
+git restore --staged .
+```
+
+
+Сравнение веток и файлов в них
 ```Bash
 # file specific difference
 git diff mybranch..master -- myfile.cs
 ```
 
+Создание патчей из разницы и применение
 ```Bash
 # creating a patch file
 git diff branch_name -- [path/to/file] > patch_file_name.patch
