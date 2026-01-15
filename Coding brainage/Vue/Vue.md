@@ -14,13 +14,14 @@ kanban-plugin: board
 
 - [ ] [[vue macroses]]
 - [ ] [[vue events]]
-- [ ] [[vue reactivity]]
+- [ ] [[Vue reactivity and rendering]]
 - [ ] [[vue instances]]
 
 
 ## Decomposition
 
 - [ ] [[vue composables]]
+- [ ] [[vue HoC]]
 
 
 ## Bugs & solutions
