@@ -2,7 +2,7 @@
 tags:
   - cheatsheets
 ---
-[https://yourbasic.org/golang/fmt-printf-reference-cheat-sheet/](https://yourbasic.org/golang/fmt-printf-reference-cheat-sheet/)
+ щ[https://yourbasic.org/golang/fmt-printf-reference-cheat-sheet/](https://yourbasic.org/golang/fmt-printf-reference-cheat-sheet/)
 
 Каждый спецификатор представляет определенный тип данных:
 

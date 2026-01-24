@@ -29,6 +29,7 @@ userMessages, err := ioutil.ReadFile("./userid/db.txt")
 Чтение файлов из директории:
 
 ```Go
+
 tinyProgramFiles, err := os.ReadDir("./basics/")
 if err != nil {
 	fmt.Println("Couldn't open directory basics:", err)
