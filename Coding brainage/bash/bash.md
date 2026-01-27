@@ -15,6 +15,7 @@ kanban-plugin: board
 - [ ] [[printf-ing]]
 - [ ] [[case-esac]]
 - [ ] [[quoting rules]]
+- [ ] [[iterating outputs]]
 
 
 ## synergies
