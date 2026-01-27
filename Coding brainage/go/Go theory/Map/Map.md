@@ -41,7 +41,6 @@ if inMap {
 }
 
 // в go активно запихиваются инициализации в if/for выражения:
-
 if fourSquared, ok := squaresMap[4]; ok {
 	// code that uses the value.
 } 
