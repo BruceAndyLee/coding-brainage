@@ -34,6 +34,10 @@ git restore --staged <path/to/file.ext>
 git restore --staged .
 ```
 
+Когда случайно закоммитил то, что не хотел
+```bash
+git reset --soft HEAD~1
+```
 
 Сравнение веток и файлов в них
 ```Bash

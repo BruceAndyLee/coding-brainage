@@ -22,6 +22,7 @@ kanban-plugin: board
 - [ ] [[pattern-matching]]
 - [ ] [[case-esac]]
 - [ ] [[quoting rules]]
+- [ ] [[iterating outputs]]
 
 
 ## synergies
