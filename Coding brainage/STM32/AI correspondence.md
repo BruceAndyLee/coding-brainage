@@ -25,51 +25,10 @@ To be more specific:
 
 Please, explore the code and provide an overview with motivated explaners and code-snippet examples.
 
----
-
-**Cursor**
-
-
-Exploring the codebase to map its structure and answer your questions. Starting with the project layout and key areas.
-
-
-
-Checking the other two boards, bootloader usage, and IAR-specific code:
-
-
-
-Checking System vs Drivers layout and a HAL vs register-level example:
-
-
-
-Checking mainboard firmware update flow and CPU/SDRAM role:
-
-
-
-Here’s a concise overview of the codebase and how it maps to your questions.
 
 ---
 
 # Firmware codebase overview
-
-## Basic premise
-
-You have **three separate firmware projects** for three STM32 boards:
-
-| Project           | MCU         | Role |
-|------------------|-------------|------|
-| **sensorboard-firm** | STM32F030x6 | Pressure (ADC), valves, RS485 to host |
-| **autosampler-firm** | STM32F407xx | Steppers, USB power, RS485, message loop |
-| **mainboard-firm**   | STM32F429xx | FreeRTOS, G‑code “CPU”, valves, steppers, SDRAM, RS485 (PCCmd), sensors |
-
-They share:
-
-- **RS485** (and on mainboard “PCCmd”) for host communication (Python `serial` + REST).
-- **Boot keys** in fixed RAM so that a **bootloader** (first 16 KB of flash, not in this repo) can decide: stay in boot mode for firmware upload, or jump to application at `0x08004000`.
-
-Restrictions typical of this kind of embedded work: no OS on sensor/autosampler (bare metal, superloop), limited RAM/stack, HAL + mix of HAL and register-level code, IAR toolchain and linker scripts (`.icf`), and a fixed memory layout (bootloader vs app partition).
-
----
 
 ## 1) HAL: what it provides, entrypoint, and where it ends
 
@@ -82,108 +41,6 @@ Restrictions typical of this kind of embedded work: no OS on sensor/autosampler 
 - **SysTick**: `HAL_IncTick()` in `SysTick_Handler()` (in `System/stm32f4xx_it.c`).
 - **Time**: `HAL_Delay()`, `HAL_GetTick()` (and RTC if used).
 
-So the **cognitive entrypoint** is: include `stm32f4xx_hal.h` (or F0/F4 as appropriate), call `HAL_Init()` and your `SystemClock_Config()` in `main()`, then use HAL only where the app chooses (often init + NVIC + SysTick); the rest can be registers.
-
-**Where HAL ends and application code starts**
-
-- **System/** (in each project): startup (vector table, call `SystemInit` then `__iar_program_start`), `system_stm32f4xx.c` (SystemInit, SystemCoreClockUpdate), `stm32f4xx_it.c` (NMI/Fault/SysTick → `HAL_IncTick`), `stm32f4xx_hal_msp.c` (MSP callbacks, often empty), `stm32f4xx_hal_conf.h`. That’s “below” the HAL API and ties HAL to this chip and toolchain.
-- **Drivers/** = ST’s HAL/LL implementation (e.g. `stm32f4xx_hal_gpio.c`, `stm32f4xx_ll_usart.c`). You don’t usually read these unless debugging HAL.
-- **Application** = everything else: `main.c`, `rs485.c`, `cmd.c`, `steppers.c`, `usb.c`, `msg.c`, etc. Application code is free to use HAL **or** direct registers; this codebase does both.
-
-**Example: “without HAL” for the same behaviour**
-
-RS485 init in `autosampler-firm/rs485.c` uses HAL for clocks, GPIO, NVIC and timer clock, but **configures the USART and IRQ handling by registers**. Without HAL, the RCC/GPIO/NVIC parts would look like this (conceptually):
-
-```c
-// With HAL (current):
-__HAL_RCC_USART1_CLK_ENABLE();
-pclk = HAL_RCC_GetPCLK2Freq();
-HAL_GPIO_Init(UsartsCfg.TxPort, &GPIO_InitStruct);
-HAL_NVIC_SetPriority(USART1_IRQn, 2, 2);
-HAL_NVIC_EnableIRQ(USART1_IRQn);
-
-// Without HAL (equivalent):
-RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
-pclk = /* derive from RCC->CFGR and PLL config */;
-// GPIO: enable GPIOA clock, set MODER/OSPEEDR/AFR for PA9/PA10/PA11
-GPIOA->MODER = (GPIOA->MODER & ~(...)) | (...);  // AF for TX/RX, output for DE
-// NVIC: NVIC->IP[...], NVIC->ISER[...]
-```
-
-The USART data path in `rs485.c` is **already** register-level (`UsartsCfg.USART->BRR`, `CR1`, `DR`, `SR`), so it would look the same with or without HAL. So in this codebase, HAL’s job is mainly: **clock tree**, **GPIO/NVIC setup**, **SysTick**, **reset**; the hot path (UART TX/RX, GPIO toggling) is already direct registers.
-
----
-
-## 2) Bootloaders, memory, ROM, and what this repo does at boot
-
-**Boot layout (partitioning)**
-
-- **Autosampler (F407)**  
-  - `stm32f407xx_flash.icf`: app at `0x08000000`, 1 MB flash, 128 KB RAM, 64 KB CCM.  
-  - `stm32f407xx_boot.icf`: **vector table** at `0x08004200`, **ROM** at `0x08004000`–`0x080FFFFF`. So the **first 16 KB** (`0x08000000`–`0x08003FFF`) are reserved for a bootloader; application starts at **0x08004000**.
-- **Mainboard (F429)**  
-  - Same idea: **boot** build uses `0x08004000`–`0x081FFFFF` (2 MB flash); first 16 KB for bootloader.
-- **Sensorboard (F030x6)**  
-  - **flash**: `0x08000000`–`0x08007FFF` (32 KB).  
-  - **boot**: vector at `0x08004200`, ROM `0x08004000`–`0x08007FFF` → again **16 KB** for bootloader.
-
-So on all three boards, **bootloader size = 16 KB**; application starts at **0x08004000**. The bootloader binary and its source are **not in this repository**.
-
-**What is “ROM” here**
-
-- **ROM** in the linker scripts means **flash** (e.g. `ROM_region` = internal flash). STM32 has no separate mask ROM for your code; “ROM” is just the read-only program region in flash.
-- **ROM in the “boot” sense** (e.g. “ROM bootloader” on some MCUs): On STM32, the **built‑in bootloader** is in **on-chip ROM** (factory mask ROM). It runs when you boot from a system boot pin/option bytes (e.g. UART/DFU), and is **not** the 16 KB you reserved. Your 16 KB is **your own** second-stage bootloader in flash that:
-  - Runs right after reset if the CPU starts at `0x08000000`.
-  - Reads **BootKey1** / **BootKey2** from fixed RAM addresses (see below).
-  - If keys match “enter boot” magic → stays in boot mode (UART/RS485 protocol to receive new firmware and write flash).
-  - Otherwise → jumps to application at `0x08004000`.
-
-So: **ROM (factory)** = ST’s built‑in bootloader (optional, for UART/DFU from pins); **your 16 KB** = your flash bootloader; **application** = everything after 0x08004000.
-
-**How much of boot is “controllable”**
-
-- Out of reset, the CPU fetches from `0x00000000` (STM32 maps this to flash at `0x08000000`). So whatever is at `0x08000000` runs first → that’s **your** 16 KB bootloader if you flash it there.
-- You fully control: who runs first (bootloader vs app), VTOR when jumping to app, and the protocol to receive firmware. You do **not** control the very first instruction address (always 0x00000000 → 0x08000000) or the factory ROM loader (only whether to use it via boot pins).
-
-**What this codebase does “during boot”**
-
-- It does **not** implement the 16 KB bootloader. It only implements the **application**.
-- **Application** boot path:
-  1. **startup_*.s** (IAR): set stack, vector table, call `SystemInit`, then `__iar_program_start` → C runtime → `main()`.
-  2. **SystemInit()** (in `System/system_stm32f4xx.c`): FPU enable, optional external memory; in your copy, **VTOR is commented out**, so the bootloader (when present) would set VTOR when jumping to the app.
-  3. **main()**: `__enable_interrupt(); HAL_Init(); SystemClock_Config();` then init GPIO, MSG, Steppers, USB, RS485 and run `MSG_Loop()` (or on mainboard, FreeRTOS and tasks).
-
-**Entering the bootloader from the host**
-
-- Application exposes a command (e.g. **RS485_BOOTLOADER** / **PCCMD_BOOTLOADER**). Handler does:
-
-```c
-BootKey1 = BOOTKEY1;   // 0xDEADBEEF
-BootKey2 = BOOTKEY2;   // 0x0BADBABE (or BOOTKEY2_PORTx on mainboard)
-__disable_interrupt();
-__DSB(); __ISB();
-HAL_NVIC_SystemReset();
-```
-
-- **BootKey1/2** are placed at **fixed RAM** so they survive reset (RAM is not cleared on soft reset):
-  - Autosampler/mainboard: `__no_init volatile unsigned long BootKey1 @ 0x20000000;` and `BootKey2 @ 0x20000004;`
-  - Sensorboard: `@ 0x200000C0` and `@ 0x200000C4` (to avoid overlapping stack/early usage).
-- So “what this codebase solves during boot” is only: **how to ask the running application to reboot into the bootloader** (set magic keys + reset). The actual “loading firmware into flash” is done by the bootloader and host tool, not by this repo.
-
----
-
-## 3) Talking to the boards to upload new firmware
-
-- **Mechanism**: Host sends the “enter bootloader” command over the **existing** RS485/PCCmd link. Board sets BootKey1/2 and resets. After reset, the **bootloader** (at 0x08000000) runs, sees the keys, and stays in boot mode, waiting for a **bootloader protocol** (UART/RS485) to receive new firmware and flash it. This repo does **not** contain that protocol or host-side flasher.
-- **Partitions**: Yes.  
-  - **0x08000000 – 0x08003FFF**: bootloader (16 KB).  
-  - **0x08004000 – end of flash**: application (your three projects, each with its own size).  
-  No separate “data” partition in these linker files; NVM/settings could be in the last pages of flash if you add that later.
-- **What you need to do**:
-  1. Have (or implement) a **host tool** that: opens the same serial port, sends the RS485 “enter bootloader” packet, then speaks the **bootloader’s** protocol (erase, write flash, verify, exit). Bootloader protocol is often: simple framing, address, length, payload, CRC; exact format is defined by whoever wrote the 16 KB bootloader.
-  2. Build **application** with the **boot** linker script (`*_boot.icf`) so that the app is linked for 0x08004000; the bootloader then receives the **application** image (starting at 0x08004000) and writes it to flash.
-
-So: “talking to each board” for firmware upload = **same serial/RS485**; first you send the “go to bootloader” command from this codebase, then you talk to the **bootloader** with its own protocol (and possibly a different baud rate/framing).
 
 ---
 
@@ -200,7 +57,7 @@ So: “talking to each board” for firmware upload = **same serial/RS485**; fir
     - `__attribute__((section(".noinit")))` and a linker section at a fixed address, e.g.  
       `__attribute__((section(".bootkey"))) __attribute__((used)) volatile unsigned long BootKey1;`  
     and in `.ld`: `.bootkey 0x20000000 : { *(.bootkey) }` (and same for BootKey2).
-- **`#pragma location = 0x20000000`** (sensorboard `VectorTable`): under GNU, put that in a section and place it at 0x20000000 in the linker script.
+- **`#pragma location = 0x20000000`** (`VectorTable`): under GNU, put that in a section and place it at 0x20000000 in the linker script.
 
 So: **behaviour is the same**, but **syntax and sections** differ. The amount of work to keep both IAR and GNU buildable:
 
@@ -217,7 +74,7 @@ So: **behaviour is the same**, but **syntax and sections** differ. The amount of
 - **RS485**: Physical layer is **UART + DE (driver enable) GPIO**. The code uses:
   - **HAL** for: RCC (USART1 clock), PCLK for baud rate, GPIO init (TX, RX, DE), NVIC for USART and TIM3.
   - **Registers** for: baud rate (`USART1->BRR = pclk/baud`), control (`CR1/CR2/CR3`), and all RX/TX in the IRQ (`SR`, `DR`, and DE toggling via `GPIO_LOW`/`GPIO_HIGH`). So “talking to standard things” = HAL for one-time setup, registers for the critical path and framing (header, length, CRC, T35 timeout with TIM3).
-- **USB** (autosampler): Only **USB power enable/disable** via GPIO (no USB device stack). `usb.c` uses `HAL_GPIO_Init` and your `GPIO_LOW`/`GPIO_HIGH` macros. So “USB” here is just power switching, not CDC or HID.
+- **USB**: Only **USB power enable/disable** via GPIO (no USB device stack). you may use `HAL_GPIO_Init` and `GPIO_LOW`/`GPIO_HIGH` macroses. or CDC/HID.
 
 **System/ vs Drivers/**
 
@@ -233,46 +90,6 @@ So: **Drivers/** = generic ST HAL/LL; **System/** = one-time, chip- and project-
 
 ---
 
-## Points of interest and tension
-
-- **Bootloader not in repo**: To actually flash firmware you depend on a 16 KB image at 0x08000000 and its protocol; that’s the main gap for “upload newer revision.”
-- **VTOR commented out** in `System/system_stm32f4xx.c`: When the app runs after the bootloader, the bootloader must set VTOR to 0x08004000 (or 0x08004200 if vector table is offset) so interrupts hit the app. Worth confirming in the bootloader code when you have it.
-- **Sensorboard `__disable_interrupt`**: In `sensorboard-firm/cmd.c` it’s `__disable_interrupt` (no parentheses). IAR may accept it as a macro; for GCC you’d use `__disable_irq()` and the macro must be a function-like macro. Small portability bug to fix if you add GNU.
-- **Mainboard PCCMD_LOAD/PCCMD_DOWNLOAD**: They load **G-code program** into SDRAM for the internal interpreter, not STM32 firmware. Firmware update is only via PCCMD_BOOTLOADER + bootloader protocol.
-- **Dual IAR/GNU**: Concentrated IAR-isms (startup, `.icf`, `__no_init @`, `intrinsics.h`) make a GCC port and a Docker (GNU-only) build realistic with a thin abstraction and one set of `.ld` scripts.
-
-If you tell me which board and host OS you use (and whether you have the bootloader binary or protocol doc), I can outline exact steps and, if you want, a minimal “enter bootloader + flash” flow for the host (e.g. Python) and what to put in a Dockerfile for a GNU build.
-
----
-
-**User**
-
-I added the bootloader folders now too. The fact that I could not even pick them out of the list of projects in the repo goes to show the level of understanding I am at right now.
-
-Please read them too and add to explanations whatever you can understand from there.
-
-The "cognitive entrypoint" needs some clarification, let me rephrase the query for a differently structured explanation:
-- the system is almost certainly defined by it's outmost layer, described in the communication protocol that is implemented in this repo. I am familliar with some parts of it (not the bootloader part though).
-- supporting this protocol there is a layer of virtual state with global variables and task queues that update the virtual state and handle communications. This layer I am barely able to read, I see the task queues and the switch-cases that handle specific commands from the host machine.
-- then there's timers+ticker+interruption handlers + gpio settings providing a foundation for the task scheduling of what I described above - that layer I only know it exists, but how complex is it, what sort of interruptions it does, how many variables are there to configure and why - I have almost no idea of.
-- adjacent is the system: RTOS? VTOS? and the drivers for the peripheral hardware like adc (I assume there have to be drivers?) - here I only heard the abbreviations. Don't even remotely know what they mean and entail.
-- lowest of all - the booting system, I put it here, because it seems to me that it is outside the scope of what've tried to structure above, and enables ALL of that to happen on power-on.
-
-I think this is roughly the strucutre I'd like to see as the roadmap to delve into this thing. If you could point out some of the errors in my guesstimate and reorder/resturcture some of the things I noted in the list, please do and give me a descending sort of explanation going deeper into the system with each step. I also expect that at each step there are clear borders, for example, you could say something like "the application code ends at calling hal for handling interrupts, gpio and timers" + "here's a sample of what's is available at that level", and the same for other parts of the system.
-
----
-
-**Cursor**
-
-
-Searching for and reading the bootloader code, then producing a descending roadmap with clear layer boundaries.
-
-
-
-Here’s a **descending roadmap** (outer → inner) with corrections to your structure, bootloader details, and clear layer boundaries.
-
----
-
 # Descending roadmap: from protocol to boot
 
 ## Corrections to your structure
@@ -281,7 +98,7 @@ Here’s a **descending roadmap** (outer → inner) with corrections to your str
    Boot runs **first** on power-on, then **never** again until the next reset. The “stack” you described is the **application** that runs **after** boot. So: **Boot → then the layers below.** Boot is “before” the rest, not “under” it in the same process.
 
 2. **“RTOS / VTOS”**  
-   There is no VTOS here. **Mainboard** uses **FreeRTOS** (RTOS = Real-Time Operating System: tasks, queues, semaphores, priorities). **Sensorboard** and **autosampler** are **bare metal**: no OS, one main loop + one message queue + interrupts. So: one board has an RTOS; the other two do not.
+   There is no VTOS here. If a board uses **FreeRTOS** (RTOS = Real-Time Operating System: tasks, queues, semaphores, priorities). Boards can also be **bare metal**: no OS, one main loop + one message queue + interrupts. So: one board has an RTOS; the other two do not.
 
 3. **Order of layers**  
    A more accurate order (outer → inner) is:
@@ -289,89 +106,22 @@ Here’s a **descending roadmap** (outer → inner) with corrections to your str
    - **Layer 1 – Protocol** (RS485/PCCmd framing, commands, CRC)  
    - **Layer 2 – Virtual state & dispatch** (queues, switch on command, global state)  
    - **Layer 3 – Scheduling / activation** (what runs when: main loop vs tasks, timers, IRQs)  
-   - **Layer 4 – OS (if any) + HAL + drivers** (FreeRTOS on mainboard; HAL + GPIO/UART/TIM/ADC drivers everywhere)  
+   - **Layer 4 – OS (if any) + HAL + drivers** (FreeRTOS; HAL + GPIO/UART/TIM/ADC drivers everywhere)  
    - **Layer 5 – Boot** (runs once at power-on; decides “bootloader” vs “application” and can flash firmware)
 
 Below we go through each layer **top-down** with **borders** and **examples** from this repo.
 
----
-
-## Layer 1 – Communication protocol (outermost)
-
-**What it is:** The on-the-wire format and command set the host and boards use. This is the “outermost” contract.
-
-**Where it lives:**  
-- **RS485** (sensorboard, autosampler): `rs485.h` / `rs485.c` (header 0xDE,0xAD,0xBE,0xEF, length, command, data, CRC16).  
-- **PCCmd** (mainboard): `pccmd.h` / `pccmd.c` (same header, PCCMD_* commands, same CRC16).  
-- **Bootloader protocol:** XModem over the same UART/RS485 (SOH/EOT/ACK/NAK, 128-byte blocks, CRC16; sensorboard also uses AES decryption).
-
-**Border:**  
-- **Inside this layer:** Packet layout (header, length, command, data, CRC), command codes (e.g. `RS485_GETDATA`, `PCCMD_BOOTLOADER`), and CRC check.  
-- **Just below:** Who **fills** / **consumes** the bytes (RX path: UART IRQ → buffer; TX path: app calls send function). So the protocol layer **ends** at “we have a valid packet” or “we send a packet”; it does **not** touch UART registers or IRQs.
-
-**Sample (protocol only):**
-
-```c
-// rs485.h / cmd.c – command codes and packet positions
-#define RS485_HEADER1_VAL 0xDE
-#define RS485_COMMAND_POS 5
-#define RS485_DATA_POS    6
-case RS485_GETDATA:   RS485_Data(); break;
-case RS485_VERSION:   RS485_Version(); break;
-case RS485_BOOTLOADER: BootKey1 = BOOTKEY1; BootKey2 = BOOTKEY2; HAL_NVIC_SystemReset(); break;
-```
-
----
-
-## Layer 2 – Virtual state and task queues (dispatch)
-
-**What it is:** Global state (variables, device state) and the mechanism that **dispatches** incoming work (e.g. “a full packet arrived”) to the right handler. No OS on sensor/autosampler; one queue. On mainboard, several FreeRTOS queues + tasks.
-
-**Where it lives:**  
-- **Sensorboard / autosampler:** `msg.c` / `msg.h` — one `tQueue` (128 entries of `{ID, Data}`), `MSG_Insert(...)` (called from IRQ), `MSG_Loop()` (main loop: drain queue, `switch (ID >> 24)` → e.g. `RS485_Msg`).  
-- **Mainboard:** `pccmd.c` — PCCmd **task** blocks on `xSemaphoreTake(pccmdSemaHandle)`; when UART IRQ has received a full packet it does `xSemaphoreGiveFromISR(pccmdSemaHandle)`, then `PCCmd_Process(rxPacketPtr)` with a big `switch (data[PCCMD_COMMAND_POS])`. Other “virtual state” lives in modules like `vars.c`, `cpu.c`, `valves.c`, etc., with their own queues/semaphores.
-
-**Border:**  
-- **Application code (this layer)** ends when it **calls** “send” or “enable IRQ” or “set timer”; it does **not** implement UART IRQ or SysTick itself.  
-- **Below:** The code that actually **produces** the events (UART IRQ pushes bytes, TIM3 timeout, or gives semaphore) and the code that **waits** (main loop `WFI` or FreeRTOS `xSemaphoreTake`).
-
-**Sample:**
-
-```c
-// autosampler-firm/msg.c
-void MSG_Loop (void) {
-  while(1) {
-    __disable_interrupt();
-    if (Queue.wr == Queue.rd) { __asm("WFI"); __enable_interrupt(); }
-    else {
-      ID = Queue.Msg[Queue.rd].ID; Data = Queue.Msg[Queue.rd].Data;
-      Queue.rd++; Queue.rd &= MSG_QUEUE_MASK;
-      __enable_interrupt();
-      switch (ID >> 24) {
-        case MSG_RS485: RS485_Msg(ID, Data); break;
-      }
-    }
-  }
-}
-```
-
-So: **application boundary** = “call HAL (or direct reg) for IRQ/GPIO/timers; implement protocol and state and dispatch above that.”
 
 ---
 
 ## Layer 3 – Timers, tick, interrupts, GPIO (scheduling foundation)
 
-**What it is:** What **triggers** the dispatch layer: UART RX IRQ (byte/packet), TIM3 (inter-byte or inter-symbol timeout), SysTick (1 ms tick for HAL and, on mainboard, FreeRTOS). Plus GPIO for RS485 DE, LEDs, etc.
+**What it is:** What **triggers** the dispatch layer: UART RX IRQ (byte/packet), TIM3 (inter-byte or inter-symbol timeout), SysTick (1 ms tick for HAL or FreeRTOS). Plus GPIO for RS485 DE, LEDs, etc.
 
 **Where it lives:**  
-- **Interrupt handlers:** e.g. `autosampler-firm/rs485.c` — `USART1_IRQHandler` (RXNE → push byte, when full packet → `MSG_Insert((MSG_RS485<<24)|MSG_RS485_MSG, 0)`); `TIM3_IRQHandler` (restart RX state machine on timeout).  
-- **System tick:** `System/stm32f4xx_it.c` — `SysTick_Handler` → `HAL_IncTick()` (and on mainboard this drives FreeRTOS scheduler).  
+- **Interrupt handlers:** e.g. `USART1_IRQHandler` (RXNE → push byte, when full packet → `MSG_Insert((MSG_RS485<<24)|MSG_RS485_MSG, 0)`); `TIM3_IRQHandler` (restart RX state machine on timeout).  
+- **System tick:** `System/stm32f4xx_it.c` — `SysTick_Handler` → `HAL_IncTick()` (drives FreeRTOS scheduler if used).  
 - **GPIO:** Application uses `HAL_GPIO_Init` for setup; toggling is often direct: `iologic.h` — `GPIO_HIGH(a,b)` / `GPIO_LOW(a,b)` → `BSRR`.
-
-**Complexity:**  
-- **Autosampler:** USART1 IRQ + TIM3 IRQ + SysTick; a few NVIC priorities.  
-- **Mainboard:** Same idea for UART (PCCmd) + TIM3; plus FreeRTOS (SysTick, PendSV); plus RS485 for sensboard/sampler/pumps (each with its own USART + TIM and `xQueueSendFromISR`).  
-- **Variables to configure:** Baud rate, TIM3 PSC/ARR (e.g. 10 ms between symbols), NVIC priority for USART vs TIM vs SysTick (and on mainboard, `configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY` so FreeRTOS is safe).
 
 **Border:**  
 - **This layer** ends at “we call HAL (or CMSIS) for: NVIC, GPIO init, UART init, timer init; we implement the IRQ handlers that move data/events into queues or call HAL_IncTick.”  
@@ -380,11 +130,11 @@ So: **application boundary** = “call HAL (or direct reg) for IRQ/GPIO/timers; 
 **Sample:**
 
 ```c
-// rs485.c – enable IRQ and set priority (application’s use of HAL)
+// enable IRQ and set priority (application’s use of HAL)
 HAL_NVIC_SetPriority(TIM3_IRQn, 2, 2);
 HAL_NVIC_EnableIRQ(TIM3_IRQn);
-HAL_NVIC_SetPriority(UsartsCfg.IRQn, 2, 2);
-HAL_NVIC_EnableIRQ(UsartsCfg.IRQn);
+HAL_NVIC_SetPriority(USARTsCfg.IRQn, 2, 2);
+HAL_NVIC_EnableIRQ(USARTsCfg.IRQn);
 
 // In USART1_IRQHandler: when full packet received
 MSG_Insert ((MSG_RS485 << 24) | MSG_RS485_MSG, 0);
@@ -394,10 +144,10 @@ So: **“Application code ends at calling HAL for interrupts, GPIO, and timers�
 
 ---
 
-## Layer 4 – “System”: RTOS (mainboard only) + HAL + drivers
+## Layer 4 – “System”: RTOS + HAL + drivers
 
 **What it is:**  
-- **RTOS (mainboard only):** FreeRTOS — tasks, queues, semaphores, priorities, SysTick-driven scheduler. No RTOS on sensorboard/autosampler.  
+- **RTOS:** FreeRTOS — tasks, queues, semaphores, priorities, SysTick-driven scheduler.
 - **HAL:** ST’s Hardware Abstraction Layer — `HAL_Init()`, `HAL_RCC_OscConfig` / `HAL_RCC_ClockConfig`, `HAL_GPIO_Init`, `HAL_FLASH_*`, `HAL_NVIC_*`, `HAL_IncTick()`, etc. Same idea on all three boards; different families (F0/F4).  
 - **Drivers:** In `Drivers/` — implementation of HAL (and LL) for ADC, UART, TIM, SPI, Flash, etc. Your app (and System/) only **call** HAL; they don’t implement it.
 
@@ -406,11 +156,11 @@ So: **“Application code ends at calling HAL for interrupts, GPIO, and timers�
 **Where it lives:**  
 - **System/:** startup (vector table → `SystemInit` → `__iar_program_start`), `system_stm32f4xx.c` (SystemInit, SystemCoreClockUpdate), `stm32f4xx_it.c` (NMI/Fault/SysTick), `stm32f4xx_hal_conf.h` (which HAL modules are enabled).  
 - **Drivers/:** ST’s HAL/LL .c files.  
-- **Mainboard:** `Middlewares/Third_Party/FreeRTOS/` — kernel, tasks, queue.c, timers.c, CMSIS-RTOS wrapper.
+- **RTOS**: `Middlewares/Third_Party/FreeRTOS/` — kernel, tasks, queue.c, timers.c, CMSIS-RTOS wrapper.
 
 **Border:**  
 - **Above:** Application and Layer 3 (IRQ handlers, main loop or tasks).  
-- **This layer** provides: clock tree, GPIO/UART/TIM/ADC/Flash init and register access, SysTick, and (on mainboard) task switch and blocking.  
+- **This layer** provides: clock tree, GPIO/UART/TIM/ADC/Flash init and register access, SysTick, and (on RTOS powered stm-board) task switch and blocking.  
 - **Below:** Only the CPU (Cortex-M) and the chip; no further software “layer.”
 
 **Sample (what’s available at this level):**
@@ -433,9 +183,6 @@ HAL_FLASH_Unlock(); HAL_FLASH_Program(...); HAL_FLASH_Lock();
 
 **What it is:** Code that runs **once** after reset. It decides “stay in bootloader” (wait for XModem firmware upload) or “run application” (jump to 0x08004000). It is **outside** the normal “protocol → state → IRQ → HAL” flow because that flow is the **application**, which only runs if boot chooses to start it.
 
-**Where it lives:**  
-- **sensorboard-boot**, **autosampler-boot**, **mainboard-boot** — each has its own `main.c`, `flash.c`, `xmodem.c`, `rs485.c` (or `uart.c` on mainboard).
-
 **What the bootloaders do (from the code you added):**
 
 1. **Check BootKey** (same fixed RAM addresses as in firmware):  
@@ -456,10 +203,10 @@ HAL_FLASH_Unlock(); HAL_FLASH_Program(...); HAL_FLASH_Lock();
 
 4. **If staying in bootloader:**  
    - Clear BootKey, init RS485 or UART, init XModem, then `while(1) XModem_Loop()`.  
-   - **XModem:** 128-byte blocks (SOH/EOT/ACK/NAK), CRC16; sensorboard also decrypts with AES.  
+   - **XModem:** 128-byte blocks (SOH/EOT/ACK/NAK), CRC16; decrypting may be done with AES.  
    - **Flash:** Erase by page (e.g. `Flash_Erase(addr)`), write with `HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, ...)`.  
-   - **Mainboard boot** can also use a button: if button not pressed and BootKey not set and firmware OK → run app; else UART + XModem.  
-   - **Mainboard boot** supports multiple BootKey2 values (MAIN, PORT1..4) for different targets.
+   - **RTOS boot** can also use a button: if button not pressed and BootKey not set and firmware OK → run app; else UART + XModem.  
+   - **RTOS boot** supports multiple BootKey2 values (MAIN, PORT1..4) for different targets.
 
 **Memory layout (boot vs app):**
 
@@ -471,16 +218,20 @@ HAL_FLASH_Unlock(); HAL_FLASH_Program(...); HAL_FLASH_Lock();
 - **Boot** is a separate binary and separate run: it uses the same HAL (and same UART/RS485 physical layer) but **different** protocol (XModem) and different “main” (no PCCmd/RS485 command loop, no G-code, no pressure/valves).  
 - **Application** is what implements your “Layer 1–4”; boot only **starts** it or **replaces** it by flashing a new image.
 
-**Sample (boot main flow):**
+**Sample (main boot flow):**
 
 ```c
-// sensorboard-boot/main.c (simplified)
-if (!((BootKey1 == BOOTKEY1) && (BootKey2 == BOOTKEY2))) {
-  if (Flash_IsFirmwareOK()) Flash_RunFirmware();
+// if already booted, just go to the app entrypoint
+if (BootKey != BOOTKEY) {
+  if (verify_flashed_firmware()) give_rains_to_flashed_firmware();
 }
-BootKey1 = 0; BootKey2 = 0;
+// otherwise go into the firmware-upload mode:
+BootKey = 0;
+// spin up RS485 over UART
 RS485_Init(RS485_1, 115200);
+// spin up the xmodem transfer protocol...
 XModem_Init();
+// ...and await transmission start
 while (1) XModem_Loop();
 ```
 
@@ -490,39 +241,10 @@ while (1) XModem_Loop();
 
 - **Layer 1 (Protocol):** Ends at “packet layout and command codes”; doesn’t touch UART/IRQ.  
 - **Layer 2 (State & dispatch):** Ends at “call send / enable IRQ / set timer”; doesn’t implement IRQ or scheduler.  
-- **Layer 3 (Timers/IRQ/GPIO):** Ends at “call HAL for NVIC/GPIO/timers and implement IRQ handlers that push to queue or HAL_IncTick.” **Application code ends here** when we talk about “calling HAL for interrupts, GPIO, and timers” — and the sample at that level is the HAL_NVIC_*, HAL_GPIO_Init, and your USART/TIM handlers.  
-- **Layer 4 (System):** HAL + drivers (+ FreeRTOS on mainboard); provides clocks, peripherals, and (on mainboard) task scheduling.  
+- **Layer 3 (Timers/IRQ/GPIO):** Ends at “call HAL for NVIC/GPIO/timers and implement IRQ handlers that push to queue or HAL_IncTick.” **Application code ends here** when we talk about “calling HAL for interrupts, GPIO, and timers” — and the sample at that level is the HAL_NVIC_\*, HAL_GPIO_Init, and your USART/TIM handlers.  
+- **Layer 4 (System):** HAL + drivers (+ FreeRTOS); provides clocks, peripherals, and (on RTOS powered board) task scheduling.  
 - **Layer 5 (Boot):** Runs once at power-on; decides bootloader vs application; implements XModem and flash erase/write; then either jumps to app or waits for new firmware. It’s “outside” the application stack in time (runs first), not “under” it in the same run.
 
----
-
-**User**
-
-Splendid! I promise I will understand all of this in a bit.
-Please add a list of terminology, just so that I can use it for reference and learn from it (for now many of the names I see seem almost like white-noise):
-
-- what is Real-time os? which primitives define it? how can you immediately tell it apart from other types of os for mcs?
-- what is CRC why does it exist and how is it applied? which versions are there of it? what's the difference?
-- what is XModem? judging from the ACK NAK headers, I surmise it is like TCP for delivery-guaranteed sessions between embedded devices? or any devices? what are the other headers for? does this protocol have run-time optimisation-headers like packet size or MTU like in tcp? what about retransmission?
-- what is UART IRQ? does it exist for the uart to tell the OS that the consumer of a message should be called?
-- what is TIM3 timeout and what is __asm("WFI")?
-- what is  Queue.rd++; Queue.rd &= MSG_QUEUE_MASK;? why is the queue_mask applied?
-- what is ID >> 24? why is it switched?
-- the example with MSG_Loop seems like a total entanglement of the application, the os and the HAL layer: interrutions are switched on and off (HAL), queue pointers/counters are managed (OS primitive work), application_layer dispatcher (RS485_Msg) called.
-- what is SysTick, who sets it and how is it decided? what is influenced by it?
-- what is NVIC? How is it used and why?
-- what is PSC/ARR in TIM3?
-- what are HAL_NVIC_, HAL_GPIO_Init, HAL_RCC_GetPCLK what are they used for, how and why?
-- what is CMSIS?
-- what are buses? what does that mean to reset them? why does that happen and when?
-- what are vector tables?
-
----
-
-**Cursor**
-
-
-Here’s a compact terminology reference you can use while reading the firmware.
 
 ---
 
@@ -539,8 +261,8 @@ Here’s a compact terminology reference you can use while reading the firmware.
 - **Deterministic scheduling** — behaviour is predictable from priorities and timing (within limits of the model).
 
 **How to tell it apart from other OS on MCUs:**
-- **Bare metal / superloop:** One `main()` loop; no task switch; “OS” is your own queue + `WFI` (like sensorboard/autosampler).
-- **RTOS (e.g. FreeRTOS):** You see `xTaskCreate`, `xQueueCreate`, `xSemaphoreTake`, `vTaskDelay`, `configMAX_PRIORITIES`; a **scheduler** decides which task runs; one task can block while others run (mainboard).
+- **Bare metal / superloop:** One `main()` loop; no task switch; “OS” is your own queue + `WFI`.
+- **RTOS (e.g. FreeRTOS):** You see `xTaskCreate`, `xQueueCreate`, `xSemaphoreTake`, `vTaskDelay`, `configMAX_PRIORITIES`; a **scheduler** decides which task runs; one task can block while others run.
 - **Linux-style OS on MCU:** Full OS with processes, virtual memory, drivers in kernel — much heavier; you’d see “Linux” or “Zephyr” etc., not just a small RTOS kernel.
 
 So: **RTOS = small kernel with tasks, priorities, preemption, and blocking primitives (queues, semaphores)**; “real-time” means deadlines matter.
@@ -638,18 +360,6 @@ The **switch** is the **dispatcher**: one place that routes every message from t
 
 ---
 
-## “Entanglement” of application, OS, and HAL in MSG_Loop
-
-Your reading is right: that loop **mixes** three concerns:
-
-1. **HAL / low-level:** `__disable_interrupt()` / `__enable_interrupt()` — control who can run (protect the queue from IRQs).
-2. **Queue (OS-like primitive):** `Queue.rd`, `Queue.wr`, `MSG_QUEUE_MASK` — shared buffer and indices.
-3. **Application:** `switch (ID >> 24)`, `RS485_Msg(ID, Data)` — what to do with the message.
-
-So it’s **not** a clean layering; it’s a **minimal bare-metal design**: one global queue, one loop, and you manually enable/disable interrupts to make the queue safe. A “real” RTOS would give you a proper queue API and blocking so you wouldn’t hand-roll the indices and critical sections. The “OS” here is just this one queue + WFI; the “HAL” is the interrupt enable/disable (and the actual UART/TIM in the ISRs).
-
----
-
 ## SysTick — who sets it, how, and what it influences
 
 **What it is:** A **24-bit system timer** inside the Cortex-M core. It counts down from a load value to zero, then can generate an interrupt. Often used as the **system tick** (e.g. 1 ms period).
@@ -658,9 +368,9 @@ So it’s **not** a clean layering; it’s a **minimal bare-metal design**: one 
 
 **What is influenced:**
 - **HAL_GetTick()** / **HAL_Delay()** — HAL’s tick counter is incremented in **SysTick_Handler** (via `HAL_IncTick()`). So any code that uses `HAL_Delay` or timeouts depends on SysTick.
-- **FreeRTOS (mainboard):** The scheduler uses the same tick (or a timer tied to it) for **task switching** and **vTaskDelay** / timeouts. So SysTick (or an equivalent tick source) drives “how often the scheduler runs” and “how time is measured” for tasks.
+- **FreeRTOS:** The scheduler uses the same tick (or a timer tied to it) for **task switching** and **vTaskDelay** / timeouts. So SysTick (or an equivalent tick source) drives “how often the scheduler runs” and “how time is measured” for tasks.
 
-So: **SysTick = system heartbeat**; HAL and (on mainboard) the RTOS depend on it for time and scheduling.
+So: **SysTick = system heartbeat**; HAL and the RTOS depend on it for time and scheduling.
 
 ---
 
@@ -684,14 +394,14 @@ So: **SysTick = system heartbeat**; HAL and (on mainboard) the RTOS depend on it
 - **PSC (Prescaler):** Divides the timer clock. If bus clock is 42 MHz and PSC = 41, timer clock = 1 MHz. So **PSC** sets “how fast the counter ticks.”
 - **ARR (Auto-Reload Register):** The period. When the counter reaches ARR (in up-counting mode), it resets to 0 and can generate an **update event** (and interrupt). So **ARR** sets “how many ticks per period.”
 
-**Example from rs485.c:**  
+**Example setting up timer for RS485 network:**
 `TIM3->PSC = (pclk/1000000) - 1` → 1 MHz tick.  
 `TIM3->ARR = 10000` → overflow every 10 000 ticks = **10 ms**.  
-So TIM3 IRQ = “10 ms passed since last byte” → inter-byte timeout for the UART RX state machine.
+in this setup TIM3 IRQ = “10 ms passed since last byte” → inter-byte timeout for the UART RX state machine.
 
 ---
 
-## HAL_NVIC_*, HAL_GPIO_Init, HAL_RCC_GetPCLK — what, how, why
+## HAL_NVIC_, HAL_GPIO_Init, HAL_RCC_GetPCLK — what, how, why
 
 - **HAL_NVIC_SetPriority(IRQn, preempt, sub):** Set NVIC priority for that IRQ (smaller number = higher priority). Used so critical ISRs run before less critical ones.
 - **HAL_NVIC_EnableIRQ(IRQn):** Allow that peripheral’s IRQ to reach the CPU. Without this, the UART/TIM interrupt never runs.
@@ -731,7 +441,7 @@ Those are **peripheral reset** registers: writing 1 then 0 **resets** all periph
 
 ## Vector table
 
-**What it is:** A **table in memory** where each entry is the **address of an exception or IRQ handler**. The CPU uses it like: “exception number 15 happened → load word at table_base + 15*4 → jump there.”
+**What it is:** A **table in memory** where each entry is the **address of an exception or IRQ handler**. The CPU uses it like: “exception number 15 happened → load word at table_base + 15\*4 → jump there.”
 
 **Typical layout:**
 - Index 0: initial **SP** (stack pointer).
@@ -748,26 +458,10 @@ Those are **peripheral reset** registers: writing 1 then 0 **resets** all periph
 
 You can use this list as a reference while re-reading the firmware; the names should start to map to these concepts instead of feeling like white noise.
 
----
-
-**User**
-
-Please generate the response to these last points separately for clearer structure:
-- what are HAL_NVIC_, HAL_GPIO_Init, HAL_RCC_GetPCLK what are they used for, how and why?
-- what is CMSIS? what is it used for why and what changes depending on it?
-- what are buses? what does that mean to reset them? why does that happen and when?
-- what are vector tables?
 
 ---
 
-**Cursor**
-
-
-Here they are as four separate reference sections:
-
----
-
-## 1. HAL_NVIC_*, HAL_GPIO_Init, HAL_RCC_GetPCLK — what they are, how they’re used, why
+## 1. HAL_NVIC_\*, HAL_GPIO_Init, HAL_RCC_GetPCLK — what they are, how they’re used, why
 
 ### HAL_NVIC_*
 
@@ -807,7 +501,7 @@ So you don’t have to remember the exact bit fields for each STM32 family; one 
 
 **How they’re used:**  
 Peripherals on APB1/APB2 are clocked from these buses. You need the bus frequency to set:
-- **UART baud rate:** `BRR = PCLK / baud` (e.g. in `rs485.c`).
+- **UART baud rate:** `BRR = PCLK / baud`
 - **Timer prescaler:** e.g. `TIM3->PSC = (HAL_RCC_GetPCLK1Freq() / 1000000) - 1` to get a 1 MHz timer clock.
 
 So you call `HAL_RCC_GetPCLK1Freq()` or `GetPCLK2Freq()` during init and use the value to compute BRR, PSC, etc.
@@ -855,7 +549,7 @@ So “buses” = both the **interconnect** (who talks to whom) and the **clock d
 **What “resetting the buses” means:**  
 It doesn’t mean “reset the wires.” It means **resetting all the peripherals** attached to those buses. The RCC has **reset registers** (e.g. `RCC->APB1RSTR`, `RCC->APB2RSTR`, `RCC->AHBRSTR`). Writing a 1 to a bit resets that peripheral (flip-flops back to default); writing 0 releases it. In the bootloader you see something like:
 
-- `RCC->APB1RSTR = 0xFFFFFFFFUL;` then `= 0;`
+- `RCC->APB1RSTR = 0xFFFFFFFFUL;` then `\= 0;`
 - same for APB2 and AHB.
 
 So “reset the buses” = **assert then release the RCC peripheral resets** for all peripherals on APB1, APB2, and AHB. Every UART, timer, GPIO block, etc. goes back to its power-on state.
