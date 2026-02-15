@@ -9,10 +9,17 @@ kanban-plugin: board
 - [ ] [[curl]]
 
 
+## utils
+
+- [ ] [[printf-ing]]
+- [ ] [[grep]]
+- [ ] [[awk]]
+- [ ] [[git]]
+
+
 ## base
 
 - [ ] [[pattern-matching]]
-- [ ] [[printf-ing]]
 - [ ] [[case-esac]]
 - [ ] [[quoting rules]]
 
@@ -26,6 +33,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
 ```
 %%
