@@ -35,3 +35,10 @@ for _, el := range array {
 	fmt.Printf("[%d] ", ind, elem) // [0] [1] [2] [3] [4]
 }
 ```
+
+если нахрн не нужны элементы и хочется просто красиво написать `for`
+```go
+for range 3 {
+	// what is it that should be done 3 times?
+}
+```

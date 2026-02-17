@@ -9,10 +9,17 @@ kanban-plugin: board
 - [ ] [[curl]]
 
 
+## utils
+
+- [ ] [[printf-ing]]
+- [ ] [[grep]]
+- [ ] [[awk]]
+- [ ] [[git]]
+
+
 ## base
 
 - [ ] [[pattern-matching]]
-- [ ] [[printf-ing]]
 - [ ] [[case-esac]]
 - [ ] [[quoting rules]]
 - [ ] [[iterating outputs]]
