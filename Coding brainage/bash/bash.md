@@ -23,10 +23,16 @@ kanban-plugin: board
 - [ ] [[processes]]
 
 
+## system setup
+
+- [ ] [[partitions fsdisk]]
+- [ ] [[resizing file-systems]]
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
 ```
 %%

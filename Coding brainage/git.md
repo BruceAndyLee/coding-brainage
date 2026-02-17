@@ -59,6 +59,14 @@ git diff --staged branch_name -- [path/to/file] > patch_file_name.patch
 git apply patch_file_name.patch
 ```
 
+```bash
+cd path/to/submodule
+git rev-parse HEAD # Shows the full commit hash
+# or
+git log -1 --oneline
+```
+
+
 очистка кеша [https://gist.github.com/pavankjadda/2bb6fbdd8786e1f57fd7bcbcc666b51d](https://gist.github.com/pavankjadda/2bb6fbdd8786e1f57fd7bcbcc666b51d)
 
 ```bash
