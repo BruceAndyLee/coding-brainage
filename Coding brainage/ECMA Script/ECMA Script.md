@@ -9,6 +9,70 @@ tags:
 
 # Specification
 
+Тупая штука для запуска промисов батчами
+```javascript
+/**
+* @param {() => Promise<unknown>} promise_getters
+* @param {number} limit
+*/
+async function batchedPromiseHandler(promise_getters, limit = 5) {
+	let i = 0;
+	let remaining_count = promise_getters.length;
+	while (i < promise_getters.length) {
+		const chunk_size = Math.min(remaining_count, limit);
+		const chunk = promise_getters.slice(i, chunk_size);
+		const promises = chunk.map((ch) => ch());
+		await Promise.allSettled(promises);
+		i += chunk_size;
+		remaining_count -= chunk_size;
+	}
+}
+```
+
+Более умная штука, которая предполагает запуск не более 5-ти промисов за раз (при завершении одного промиса, в работу берется следующий)
+```javascript
+async function limitedPromiseQueue(promise_getters, limit = 5) {
+	const total_count = promise_getters.length;
+	let resolver = null;
+	const all_processed = new Promise((resolve) => { resolver = resolve });
+	let queue_index = Math.min(total_count, limit);
+
+	const on_one_done = () => {
+		if (queue_index === total_count) {
+			resolver();
+			return;
+		}
+		promise_getters[queue_index]()
+			.finally(on_one_done);
+	    queue_index += 1;
+	}
+
+	const initial_bunch = promise_getters
+		.slice(0, Math.min(total_count, limit));
+	initial_bunch.forEach((get_promise) => {
+		get_promise().finally(on_one_done)
+	})
+	await all_processed;
+}
+```
+
+
+### Reader & Stream
+
+```javascript
+const reader = ctx.request.body.getReader();
+    let ctr = 0;
+    while(true) {
+      const { value, done } = await reader.read();
+      if (done) {
+        console.log(ctr, "value", value);
+        break;
+      }
+      console.log(ctr, "value", value);
+      ctr += 1;
+    }
+```
+
 ### Functions
 
 - **Function wrapping +** **.call()** + **.apply()**
