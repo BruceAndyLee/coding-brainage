@@ -30,6 +30,12 @@ kanban-plugin: board
 - [ ] [[processes]]
 
 
+## system setup
+
+- [ ] [[partitions fsdisk]]
+- [ ] [[resizing file-systems]]
+
+
 
 
 %% kanban:settings
