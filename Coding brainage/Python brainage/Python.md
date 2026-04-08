@@ -26,6 +26,7 @@ kanban-plugin: board
 
 - [ ] [[wsgi asgi]]
 - [ ] [[python-w-c]]
+- [ ] [[so & CDLL]]
 
 
 ## testing
