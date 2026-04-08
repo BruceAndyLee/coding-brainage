@@ -30,57 +30,54 @@ tags:
       first_name LIKE "s%s"
       and len(first_name) >= 6;
     ```
-    
+
 - ==**NO FROM**== аггрегации внутри одной таблицы (типа **horizontal union**)
-    
-    “вы такой себе бэкендер” варик:
-    
-    ```SQL
-    SELECT
-    	(SELECT * from patients where gender='M') as males,
-    	(SELECT * from patients where gender='F') as females
-    FROM patients
-    LIMIT 1;
-    ```
-    
-    “вы восхитительны” варик
-    
-    ```SQL
-    SELECT 
-      (SELECT count(*) FROM patients WHERE gender='M') AS male_count, 
-      (SELECT count(*) FROM patients WHERE gender='F') As female_count;
-    ```
-    
+
+“вы такой себе бэкендер” варик:
+```SQL
+SELECT
+	(SELECT * from patients where gender='M') as males,
+	(SELECT * from patients where gender='F') as females
+FROM patients
+LIMIT 1;
+```
+
+“вы восхитительны” варик
+```SQL
+SELECT 
+  (SELECT count(*) FROM patients WHERE gender='M') AS male_count, 
+  (SELECT count(*) FROM patients WHERE gender='F') As female_count;
+```
+
 - **GROUP BY +** ==**HAVING**== Фильтрация с аггрегацией по двум полям
-    
-    ```SQL
-    # выбор пациентов, которые приходили больше одного раза,
-    # больше одного раза уходя с одним и тем же диагнозом 
-    SELECT
-      patient_id,
-      diagnosis
-    FROM admissions
-    GROUP BY
-      patient_id,
-      diagnosis
-    HAVING COUNT(*) > 1;
-    ```
-    
+
+```SQL
+# выбор пациентов, которые приходили больше одного раза,
+# больше одного раза уходя с одним и тем же диагнозом 
+SELECT
+  patient_id,
+  diagnosis
+FROM admissions
+GROUP BY
+  patient_id,
+  diagnosis
+HAVING COUNT(*) > 1;
+```
+
 - **GROUP BY + COUNT** Группировка с аггрегацией по одному и тому же полю
-    
-    ```SQL
-    # группирцем пациентов по городу
-    # в каждую группу добавляем количество пациентов, проживающих в городе
-    # полученные записи упорядочиваем по количеству и по названию города
-    SELECT
-      city,
-      COUNT(*) as patients_in_the_city
-    FROM patients
-    GROUP BY city
-    ORDER BY
-      patients_in_the_city DESC,
-      city ASC;
-    ```
+```SQL
+# группирцем пациентов по городу
+# в каждую группу добавляем количество пациентов, проживающих в городе
+# полученные записи упорядочиваем по количеству и по названию города
+SELECT
+  city,
+  COUNT(*) as patients_in_the_city
+FROM patients
+GROUP BY city
+ORDER BY
+  patients_in_the_city DESC,
+  city ASC;
+```
     
 - ==**UNION**== + **constant column** конкатенация 1+ запросов
     
@@ -200,168 +197,158 @@ tags:
     
     ORDER BY + LIMIT
     
-    ```SQL
-    SELECT *
-    FROM admissions
-    WHERE patient_id = 542
-    ORDER BY admission_date DESC
-    LIMIT 1;
-    ```
-    
-    GROUP BY + HAVING
-    
-    ```SQL
-    SELECT *
-    FROM admissions
-    WHERE patient_id = 542
-    GROUP BY patient_id
-    HAVING
-      admission_date = MAX(admission_date);
-    ```
-    
+```SQL
+SELECT *
+FROM admissions
+WHERE patient_id = 542
+ORDER BY admission_date DESC
+LIMIT 1;
+```
+
+GROUP BY + HAVING
+
+```SQL
+SELECT *
+FROM admissions
+WHERE patient_id = 542
+GROUP BY patient_id
+HAVING
+  admission_date = MAX(admission_date);
+```
+
 - **JOIN | LEFTJOIN** вывод данных с аггрегацией по отдельной таблице
-    
-    группировка и аггрегация по докторам в подзапросе + left join
-    
-    ```SQL
-    # подсчет посещений для каждого доктора.
-    # Посещения в отдельной таблице
-    SELECT
-      first_name,
-      last_name,
-      number_of_admissions
-    FROM doctors
-    LEFT JOIN (
-      SELECT
-        COUNT(*) AS number_of_admissions,
-        attending_doctor_id
-      FROM admissions
-      GROUP BY
-        attending_doctor_id
-    ) ON attending_doctor_id = doctor_id;
-    ```
-    
-    группировка и агрегация на верхнем уровне.
-    
-    ```SQL
-    # 1. Получаем огромную таблицу на верхнем уровне
-    #  - каждый доктор повторяется столько раз, сколько раз его посещали
-    # 2. Группируем записи в ней по айди доктора
-    #  - внутрь каждой группы добавляем аггрегированное поле
-    SELECT
-      first_name,
-      last_name,
-      COUNT(*) as number_of_admissions
-    FROM doctors
-      JOIN admissions ON attending_doctor_id = doctor_id
-    GROUP BY doctor_id;
-    # Note: здесь достаточно обычного джоина (он же INNER)
-    # В результирующей таблице будут только те записи из обеих таблиц
-    # которые нашли себе пару в другой таблице, то есть, если бы какой-то
-    # из докторов оказался без приёмов - его бы не включили в результат
-    # и наоборот, все приемы, в которых не участвовал доктор - никак 
-    # не могут и не будут фигурировать в результате.
-    ```
-    
+
+группировка и аггрегация по докторам в подзапросе + left join
+```SQL
+# подсчет посещений для каждого доктора.
+# Посещения в отдельной таблице
+SELECT
+  first_name,
+  last_name,
+  number_of_admissions
+FROM doctors
+LEFT JOIN (
+  SELECT
+	COUNT(*) AS number_of_admissions,
+	attending_doctor_id
+  FROM admissions
+  GROUP BY
+	attending_doctor_id
+) ON attending_doctor_id = doctor_id;
+```
+
+группировка и агрегация на верхнем уровне.
+```SQL
+# 1. Получаем огромную таблицу на верхнем уровне
+#  - каждый доктор повторяется столько раз, сколько раз его посещали
+# 2. Группируем записи в ней по айди доктора
+#  - внутрь каждой группы добавляем аггрегированное поле
+SELECT
+  first_name,
+  last_name,
+  COUNT(*) as number_of_admissions
+FROM doctors
+  JOIN admissions ON attending_doctor_id = doctor_id
+GROUP BY doctor_id;
+# Note: здесь достаточно обычного джоина (он же INNER)
+# В результирующей таблице будут только те записи из обеих таблиц
+# которые нашли себе пару в другой таблице, то есть, если бы какой-то
+# из докторов оказался без приёмов - его бы не включили в результат
+# и наоборот, все приемы, в которых не участвовал доктор - никак 
+# не могут и не будут фигурировать в результате.
+```
+
 - **JOIN | LEFT JOIN** применение функции к аггрегированным данным (==**!!!!**==)
-    
-    ```SQL
-    # Аналогичная предыдущей задача,
-    # но приемы надо не посчитать, а найти первый и последний.
-    SELECT
-      doctor_id as id,
-      CONCAT(first_name, " ", last_name) as full_name,
-      MAX(admission_date) as last_admission_date,
-      MIN(admission_date) AS first_admission_date
-    FROM doctors
-      JOIN admissions on attending_doctor_id = doctor_id
-    group by doctor_id;
-    ```
-    
-    (==!!!!==) **Внимание вопрос**: что выведется, если не написать в конце **group by**, и почему?
-    
+```SQL
+# Аналогичная предыдущей задача,
+# но приемы надо не посчитать, а найти первый и последний.
+SELECT
+  doctor_id as id,
+  CONCAT(first_name, " ", last_name) as full_name,
+  MAX(admission_date) as last_admission_date,
+  MIN(admission_date) AS first_admission_date
+FROM doctors
+  JOIN admissions on attending_doctor_id = doctor_id
+group by doctor_id;
+```
+
+(==!!!!==) **Внимание вопрос**: что выведется, если не написать в конце **group by**, и почему?
+
 - **LEFT JOIN x2 + string concat shortcut**
-    
-    ```SQL
-    SELECT
-      pt.first_name || ' ' || pt.last_name as patient,
-      ph.first_name || ' ' || ph.last_name AS doctor,
-      adm.diagnosis
-    FROM admissions adm
-      LEFT JOIN patients pt ON pt.patient_id = adm.patient_id
-      LEFT JOIN doctors ph ON ph.doctor_id = adm.attending_doctor_id;
-    ```
-    
+```SQL
+SELECT
+  pt.first_name || ' ' || pt.last_name as patient,
+  ph.first_name || ' ' || ph.last_name AS doctor,
+  adm.diagnosis
+FROM admissions adm
+  LEFT JOIN patients pt ON pt.patient_id = adm.patient_id
+  LEFT JOIN doctors ph ON ph.doctor_id = adm.attending_doctor_id;
+```
+
 - **GROUP BY x2**
-    
-    ```SQL
-    SELECT
-      first_name,
-      last_name,
-      COUNT(*) AS duplicated
-    from patients
-    GROUP BY
-      first_name,
-      last_name
-    HAVING duplicated > 1;
-    ```
-    
+```sql
+SELECT
+  first_name,
+  last_name,
+  COUNT(*) AS duplicated
+FROM patients
+GROUP BY
+  first_name,
+  last_name
+HAVING duplicated > 1;
+```
+
 - количество уникальных дубликатов
-    
-    ```SQL
-    SELECT COUNT(*) AS duplicates
-    FROM (
-        SELECT
-          first_name || last_name as full_name,
-          "Duplicate" AS duplicate
-        from patients
-        group by full_name
-        HAVING COUNT(*) > 1
-      )
-    group by duplicate;
-    ```
-    
+```SQL
+SELECT COUNT(*) AS duplicates
+FROM (
+	SELECT
+	  first_name || last_name as full_name,
+	  "Duplicate" AS duplicate
+	from patients
+	group by full_name
+	HAVING COUNT(*) > 1
+  )
+group by duplicate;
+```
+
 - **DISTINCT + JOIN** вычищение дубликатов после джоина
-    
-    ```SQL
-    SELECT
-      DISTINCT p.patient_id,
-      p.patient_id || FLOOR(LEN(last_name)) || FLOOR(YEAR(birth_date)) as temp_password,
-      adm.admission_date
-    FROM patients p
-      INNER JOIN admissions adm ON adm.patient_id = p.patient_id;
-    ```
-    
+```SQL
+SELECT
+  DISTINCT p.patient_id,
+  p.patient_id || FLOOR(LEN(last_name)) || FLOOR(YEAR(birth_date)) as temp_password,
+  adm.admission_date
+FROM patients p
+  INNER JOIN admissions adm ON adm.patient_id = p.patient_id;
+```
 
 # Basics + math
 
 - **FLOOR + GROUP BY** разбиение на группы-промежутки на ч. прямой
-    
-    ```SQL
-    SELECT
-      COUNT(*) AS patients_in_group,
-      FLOOR(weight / 10) * 10 as weight_group
-    FROM patients
-    GROUP BY (weight / 10)
-    ORDER BY weight_group DESC;
-    ```
-    
+```SQL
+SELECT
+  COUNT(*) AS patients_in_group,
+  FLOOR(weight / 10) * 10 as weight_group
+FROM patients
+GROUP BY (weight / 10)
+ORDER BY weight_group DESC;
+```
+
 - **POWER + CASE** (aka ternary)
-    ```SQL
-    # Вычисляем наличие ожирения по пороговому значению для каждого пациента
-    SELECT
-      patient_id,
-      weight,
-      height,
-      (
-        CASE
-          WHEN weight / (POWER(height / 100.0, 2)) >= 30 THEN 1
-          ELSE 0
-        END
-      ) AS isObese
-    from patients;
-    ```
-    
+```SQL
+# Вычисляем наличие ожирения по пороговому значению для каждого пациента
+SELECT
+  patient_id,
+  weight,
+  height,
+  (
+	CASE
+	  WHEN weight / (POWER(height / 100.0, 2)) >= 30 THEN 1
+	  ELSE 0
+	END
+  ) AS isObese
+from patients;
+```
 
 # JSON tinkering
 
