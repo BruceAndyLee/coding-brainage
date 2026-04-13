@@ -33,6 +33,7 @@ kanban-plugin: board
 ## ideas/backlog
 
 - [ ] [[analog reader code]]
+- [ ] [[recursive filter on ADC]]
 
 
 
