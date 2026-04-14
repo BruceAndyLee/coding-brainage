@@ -14,10 +14,15 @@ kanban-plugin: board
 - [ ] [[sql terms]]
 
 
+## migration control systems
+
+- [ ] [[liquibase on alpine]]
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false]}
 ```
 %%
