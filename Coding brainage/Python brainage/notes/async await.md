@@ -20,11 +20,11 @@ The result will be lost unless you use a coroutine runner that awaits its comple
 ```python
 aio.run(say_what(2, "What?.."))
 # dos segundas despues
-# What?..
+# > What?..
 ```
 
 Just calling a function is creating a coroutine but not scheduling it to be executed.
-Of course you cannot use await outside of function (bc everything in python is an object but not the module so the module execution cannot be awaited by the python interpreter itself, there has to be like an explicit awaiter idk or something), which is waht `aio.run` is for. It's probably just
+Of course you cannot use await outside of function (bc everything in python is an object but not the module so the module execution cannot be awaited by the python interpreter itself, there has to be like an explicit awaiter idk or something), which is what `aio.run` is for. It's probably just
 ```python
 async def run(func):
 	await func()
