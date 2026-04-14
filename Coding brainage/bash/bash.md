@@ -15,6 +15,7 @@ kanban-plugin: board
 - [ ] [[grep]]
 - [ ] [[awk]]
 - [ ] [[git]]
+- [ ] [[byte reading]]
 
 
 ## base
