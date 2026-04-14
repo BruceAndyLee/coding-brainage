@@ -1,3 +1,4 @@
+Простейшее решение с одной переменной для накопления данных
 ```C
 // hardware setup
 int INPUT_PIN = A0;
@@ -24,7 +25,6 @@ void loop() {
 	apply_filter(analogRead(INPUT_PIN));
 	
 	// send filtered_adc_read to serial or sth
-
 	delay(10);
 }
 ```

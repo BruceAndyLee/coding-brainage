@@ -12,7 +12,6 @@ kanban-plugin: board
 
 ## in-progress
 
-- [ ] завести файл README с основными идеями
 - [ ] [[Stepper motor script]]
 - [ ] [[Stepper motor button control]]
 - [ ] [[ShiftRegister script]]
@@ -20,6 +19,7 @@ kanban-plugin: board
 
 ## completed
 
+- [ ] завести файл README с основными идеями
 - [ ] [[BINARY COUNTER]]
 - [ ] [[ANALOG WRITE]]
 - [ ] [[ANALOG READ & WRITE]]
