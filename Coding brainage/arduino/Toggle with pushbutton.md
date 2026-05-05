@@ -1,4 +1,4 @@
-[[pushbutton]]
+[[Pushbutton]]
 
 Контур:
 - pullup resistor button

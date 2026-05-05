@@ -13,6 +13,7 @@
 
 ## Нулевая миграция
 
+инициализируем БД в файле `migrations.sql`
 ```sql
 --liquibase formatted sql
 
