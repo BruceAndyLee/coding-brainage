@@ -19,10 +19,15 @@ kanban-plugin: board
 - [ ] [[liquibase on alpine]]
 
 
+## SQLite
+
+- [ ] [[sqlite output formatting]]
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
 ```
 %%

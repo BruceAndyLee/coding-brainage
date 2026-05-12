@@ -17,6 +17,7 @@ kanban-plugin: board
 - [ ] [[git]]
 - [ ] [[byte reading]]
 - [ ] [[diff]]
+- [ ] [[apk]]
 
 
 ## base
