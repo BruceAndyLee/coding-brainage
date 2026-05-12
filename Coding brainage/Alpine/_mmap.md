@@ -31,19 +31,37 @@ kanban-plugin: board
 - [ ] [[eudev]]
 
 
-## processes
+## OS startup order
+
+- [ ] declare initcall sections (C code functions) that will be called at system boot
+- [ ] initcalls - run subsystem-functions
+- [ ] pid1 - run the openrc (other service manager process)
 
 
+## скорее software
 
-## ?
-
+- [ ] [[initcalls]]
+- [ ] [[subsystem]]
 - [ ] [[openrc]]
+- [ ] [[netlink]]
+- [ ] [[runtime file-systems]]
+- [ ] [[modprobe]]
+
+
+## скорее hardware
+
+- [ ] [[buses]]
+
+
+## explainers
+
+- [ ] [[how a driver is loaded]]
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false]}
 ```
 %%
