@@ -46,11 +46,13 @@ kanban-plugin: board
 - [ ] [[netlink]]
 - [ ] [[runtime file-systems]]
 - [ ] [[modprobe]]
+- [ ] [[kobject]]
+- [ ] [[uevent]]
 
 
 ## скорее hardware
 
-- [ ] [[buses]]
+- [ ] [[Buses & devices]]
 
 
 ## explainers
@@ -58,10 +60,20 @@ kanban-plugin: board
 - [ ] [[how a driver is loaded]]
 
 
+## subsystems
+
+- [ ] [[ss overview]]
+- [ ] [[block subsystem]]
+- [ ] [[v4l2 subsystem]]
+- [ ] [[input subsystem]]
+- [ ] [[ALSA subsystem]]
+- [ ] [[net subsystem]]
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false]}
 ```
 %%
