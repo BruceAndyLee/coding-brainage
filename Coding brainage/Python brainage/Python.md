@@ -20,6 +20,7 @@ kanban-plugin: board
 - [ ] [[class instantiation]]
 - [ ] [[dataclass]]
 - [ ] [[python memory management]]
+- [ ] [[real-time tracking of a subprocess]]
 
 
 ## specs & frameworks
@@ -27,6 +28,7 @@ kanban-plugin: board
 - [ ] [[wsgi asgi]]
 - [ ] [[python-w-c]]
 - [ ] [[so & CDLL]]
+- [ ] [[venv]]
 
 
 ## testing
