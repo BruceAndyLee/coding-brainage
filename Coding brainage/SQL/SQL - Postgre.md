@@ -87,7 +87,7 @@ SELECT
   "Patient" as role
 from patients
 UNION ALL
-select
+	select
   doctors.first_name,
   doctors.last_name,
   "Doctor" as role
