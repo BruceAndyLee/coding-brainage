@@ -23,11 +23,11 @@
 	- [ ] full-chords
 	- [ ] full-chord inversinos
 	- [ ] tritone substitute chord inversions
-- [ ] A
-	- [ ] triads
-	- [ ] full-chords
-	- [ ] full-chord inversinos
-	- [ ] tritone substitute chord inversions
+- [ ] A 
+	- [ ] triads - 1
+	- [ ] full-chords - 1
+	- [ ] full-chord pivots - 1
+	- [ ] tritone substitute chord pivots
 - [ ] D
 	- [ ] triads
 	- [ ] full-chords
