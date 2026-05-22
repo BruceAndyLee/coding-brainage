@@ -24,11 +24,15 @@ kanban-plugin: board
 	```
 - [ ] в каждой такой папке лежат симлинки на плоский список скриптов в /etc/init.d/
 - [ ] каждый скрипт в init.d - это bash, в котором определены стандартные ручки, которые openrc может позвать, чтобы определить порядок загрузки модулей (скрипты - зависимости)
+- [ ] есть такой файл /usr/share/misc/usb.ids
+	
+	его мейнтейнит проект Linux USB - он должен скачиваться вместе с утилитами usbutils, чтобы драйвера или более высокоуровневые программы могли смотреть в него и резолвить имена вендрово и моделей usb-устройств
 
 
 ## drivers
 
 - [ ] [[eudev]]
+- [ ] [[usb devices on boot]]
 
 
 ## OS startup order
@@ -48,16 +52,13 @@ kanban-plugin: board
 - [ ] [[modprobe]]
 - [ ] [[kobject]]
 - [ ] [[uevent]]
+- [ ] [[apk]]
+- [ ] [[openssl]]
 
 
 ## скорее hardware
 
 - [ ] [[Buses & devices]]
-
-
-## explainers
-
-- [ ] [[how a driver is loaded]]
 
 
 ## subsystems
@@ -70,10 +71,20 @@ kanban-plugin: board
 - [ ] [[net subsystem]]
 
 
+## explainers
+
+- [ ] [[how a driver is loaded]]
+- [ ] [[how to mount image as device]]
+
+
+## fs
+
+
+
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false,false]}
 ```
 %%
