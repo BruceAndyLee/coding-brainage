@@ -1,0 +1,65 @@
+- [ ] G# (fuk you you're Ab)
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] C#
+	 - [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] F#
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] B
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] E
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] A 
+	- [ ] triads - 1
+	- [ ] full-chords - 1
+	- [ ] full-chord pivots - 1
+	- [ ] tritone substitute chord pivots
+- [ ] D
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] G
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] C
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] F
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] Bb
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] Eb
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
+- [ ] Ab
+	- [ ] triads
+	- [ ] full-chords
+	- [ ] full-chord inversinos
+	- [ ] tritone substitute chord inversions
