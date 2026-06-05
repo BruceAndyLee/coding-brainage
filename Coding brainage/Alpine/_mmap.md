@@ -33,6 +33,7 @@ kanban-plugin: board
 
 - [ ] [[eudev]]
 - [ ] [[usb devices on boot]]
+- [ ] https://lwn.net/Kernel/LDD3/
 
 
 ## OS startup order
