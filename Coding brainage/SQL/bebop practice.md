@@ -1,0 +1,3 @@
+
+- [[Dominant scale]]
+- [[Diminished scale]]
