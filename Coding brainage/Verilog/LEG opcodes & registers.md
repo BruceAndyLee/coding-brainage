@@ -27,7 +27,6 @@ xx01 0101 # 37 if geq
 1xxx xxxx # первый операнд интерпретируется как immediate value вместо дефолтной адресации (см. ниже)
 x1xx 0xxx # второй аргумент интерпретируется как immediate value вместо дефолтной адресации регистров, счетчика и инпута
 
-
 ## 2. operand 1
 # этот байт указывает откуда взять значение первого операнда
 0000 0000 # reg0
@@ -62,4 +61,13 @@ x1xx 0xxx # второй аргумент интерпретируется ка�
 0000 0110 # output
 # если opcode был логическим оператором, то это адрес, на который надо переключить счетчик
 xxxx xxxx # 
+```
+
+```toml
+r0 - general purpose & RAM addressing
+r1 - general purpose & STACK/RAM value
+r2 - general purpose
+r3 - general purpose
+r4 - general purpose
+r5 - RAM & STACK enable flagsa
 ```

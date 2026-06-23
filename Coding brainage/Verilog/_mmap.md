@@ -11,16 +11,21 @@ kanban-plugin: board
 - [ ] [[Puter]]
 
 
-## puter
+## asm
+
+- [ ] [[SHOOT RATS]]
+- [ ] [[LEG opcodes & registers]]
+- [ ] [[GUESS NUMBER (linear)]]
+- [ ] [[PUSH POP]]
+
+
+## high components
 
 - [ ] [[REGISTERS]]
 - [ ] [[ALU]]
 - [ ] [[LOGIC CORE]]
-- [ ] [[1st program]]
-- [ ] [[GUESS NUMBER (linear)]]
-- [ ] [[SHOOT RATS]]
-- [ ] [[LEG opcodes]]
 - [ ] [[STACK]]
+- [ ] [[STACK INTEGRATION]]
 
 
 ## память
@@ -33,7 +38,7 @@ kanban-plugin: board
 - [ ] [[LEG RAM]]
 
 
-## 8 bit
+## 8 bit components
 
 - [ ] [[BYTE ADDER]]
 - [ ] [[SIGN INVERTER]]
@@ -64,13 +69,13 @@ kanban-plugin: board
 - [ ] [[ODD signal count]]
 - [ ] [[SUM + CARRY]]
 - [ ] [[FULL ADDER]]
-- [ ] [[SXOR]]
+- [ ] [[sXOR]]
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false,false]}
 ```
 %%
