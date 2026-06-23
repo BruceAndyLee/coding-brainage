@@ -14,9 +14,10 @@ kanban-plugin: board
 ## asm
 
 - [ ] [[SHOOT RATS]]
-- [ ] [[LEG opcodes & registers]]
 - [ ] [[GUESS NUMBER (linear)]]
+- [ ] [[LEG opcodes & registers]]
 - [ ] [[PUSH POP]]
+- [ ] [[call & ret]]
 
 
 ## high components

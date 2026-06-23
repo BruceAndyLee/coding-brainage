@@ -7,7 +7,7 @@
 0000 0000 # output destination
 ```
 
-Детализация каждого байта
+Детализация байта команда
 ```toml
 ## 1. opcode
 0000 0000 # ADD
@@ -23,10 +23,16 @@ xx01 0010 # 34 if l
 xx01 0011 # 35 if leqe
 xx01 0100 # 36 if g
 xx01 0101 # 37 if geq
+xx01 0110 # 38 call ?
+xx01 0111 # 39 ret ?
 
 1xxx xxxx # первый операнд интерпретируется как immediate value вместо дефолтной адресации (см. ниже)
 x1xx 0xxx # второй аргумент интерпретируется как immediate value вместо дефолтной адресации регистров, счетчика и инпута
 
+```
+
+Детализация байтов-операндов
+```toml
 ## 2. operand 1
 # этот байт указывает откуда взять значение первого операнда
 0000 0000 # reg0
@@ -63,11 +69,24 @@ x1xx 0xxx # второй аргумент интерпретируется ка�
 xxxx xxxx # 
 ```
 
+Подключение регистров к периферии
 ```toml
 r0 - general purpose & RAM addressing
-r1 - general purpose & STACK/RAM value
+r1 - general purpose & stack/RAM value
 r2 - general purpose
 r3 - general purpose
 r4 - general purpose
-r5 - RAM & STACK enable flagsa
+r5 - RAM & stack enable flags
+
+RAM & stack are written to via registers.
+RAM & stack wired to output directly.
+```
+
+Флаги регистра r5, который работает с памятью и стеком:
+```toml
+xxx0 0001 - read from RAM
+xxx0 0010 - write to RAM
+xxx0 0100 - pop to stack
+xxx0 1000 - push to stack
+xxx1 0000 - push next word address to stack?
 ```
